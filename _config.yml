@@ -81,8 +81,7 @@ theme: apollo
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  deploy:
   type: git
-  repo: https://github.com/doublekai/doublekai.github.io.git
+  repo: git@github.com:doublekai/doublekai.github.io.git
   branch: main
 
