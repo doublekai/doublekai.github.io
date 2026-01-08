@@ -15,6 +15,5 @@
 
 #   联系方式
 +	Mail:wdoublekai@126.com
-+	QQ：1357003732
 +	微信：wdoublekai
 	
