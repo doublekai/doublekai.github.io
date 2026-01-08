@@ -6,7 +6,7 @@
   <link href="https://www.doublekai.com/atom.xml" rel="self"/>
   
   <link href="https://www.doublekai.com/"/>
-  <updated>2025-12-30T06:21:15.782Z</updated>
+  <updated>2026-01-08T02:47:17.803Z</updated>
   <id>https://www.doublekai.com/</id>
   
   <author>
@@ -17,51 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
-    <link href="https://www.doublekai.com/2025/12/30/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A01%EF%BC%88%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9%EF%BC%89/"/>
-    <id>https://www.doublekai.com/2025/12/30/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A01%EF%BC%88%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9%EF%BC%89/</id>
-    <published>2025-12-30T06:21:15.782Z</published>
-    <updated>2025-12-30T06:21:15.782Z</updated>
-    
-    <content type="html"><![CDATA[<p>我们把分类错误的样本数占样本总数的比例称为“错误率”(error rate)，即如果在m个样本中有a个样本分类错误，则错误率E=a/m；相应的，1-a/m称为“精度”，即“精度=1-错误率”。更一般地，我们把学习器的实际预测输出与样本的真实输出之间的差异称为“误差”(error)，学习器在训练集上的误差称为“训练误差”(training error)或“经验误差”(empirical error)，在新样本上的误差称为“泛化误差”(generalization error)。显然，我们希望得到泛化误差小的学习器。然而，我们事先并不知道新样本是什么样，实际能做的是努力使经验误差最小化。在很多情况下，我们可以学得一个经验误差很小，在训练集上表现很好的学习器，例如甚至对所有训练样本都分类正确，即分类错误率为零，分类精度为100%，但这是不是我们想要的学习器呢？遗憾的是，这样的学习器在多数情况下都不好。</p><p>完整的数据集表示为T={(x1,y1),(x2,y2),(x2,y2),…,(xi,yi)}，对于一个学习机而言，不是所有的数据都用于训练学习模型，而是会被分为三个部分：训练数据、交叉验证数据、测试数据。</p><ul><li>  训练数据(training data)：顾名思义，训练数据用于训练学习模型，通常比例不低于总数据量的一半。</li><li>  交叉验证数据(cross validation data)：交叉验证数据用于衡量训练过程中模型的好坏，因为机器学习算法大部分都不是通过解析法得到的，而是通过不断迭代来慢慢优化模型，所以交叉验证数据就可以用来监视模型训练时候的性能变化。</li><li>  测试数据(testing data)：在模型训练好了之后，测试数据用于衡量最终模型的性能好坏，这也是模型性能好坏的衡量指标，交叉验证的指标只能用于监视和辅助模型训练，不能用来代表模型好坏，所以哪怕交叉验证的准确度是100%而测试数据的准确度是10%，那么模型也是不能被认可的。通常交叉验证和测试数据的比例各占一小半。</li></ul><p>欠拟合时，模型在训练集和测试集上都有很大误差（高偏差）；过拟合时，模型在训练集上可能误差很小，但是在测试集上误差很大（高方差）。如果模型在训练集上误差很大，且在测试集上的误差要更大的多，那么该模型同时有着高偏差和高方差。</p><p>  防止欠拟合方法：不要选用过于简单的模型</p><p>  防止过拟合方法：不要选用过于复杂的模型；数据集扩增（可以是寻找更多的训练集，也可以是对原训练集做处理，比如对原图片翻转缩放裁剪等）；正则化；Early stopping(在测试集上的误差率降到最低就停止训练，而不是不断降低在训练集上的误差)</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;我们把分类错误的样本数占样本总数的比例称为“错误率”(error rate)，即如果在m个样本中有a个样本分类错误，则错误率E=a/m；相应的，1-a/m称为“精度”，即“精度=1-错误率”。更一般地，我们把学习器的实际预测输出与样本的真实输出之间的差异称为“误差”(err</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="https://www.doublekai.com/2025/12/30/python%20mock%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
-    <id>https://www.doublekai.com/2025/12/30/python%20mock%E7%9A%84%E4%BD%BF%E7%94%A8/</id>
-    <published>2025-12-30T06:21:15.780Z</published>
-    <updated>2025-12-30T06:21:15.780Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="在项目的单元测试过程中，会遇到："><a href="#在项目的单元测试过程中，会遇到：" class="headerlink" title="在项目的单元测试过程中，会遇到："></a>在项目的单元测试过程中，会遇到：</h1><p>1、接口的依赖<br>2、外部接口调用<br>3、测试环境非常复杂</p><p>单元测试应该只针对当前单元进行测试, 所有的内部或外部的依赖应该是稳定的, 已经在别处进行测试过的.使用mock 就可以对外部依赖组件实现进行模拟并且替换掉, 从而使得单元测试将焦点只放在当前的单元功能。</p><p>我们要测试A模块，然后A模块依赖于B模块的调用。但是，由于B模块的改变，导致了A模块返回结果的改变，从而使A模块的测试用例失败。其实，对于A模块，以及A模块的用例来说，并没有变化，不应该失败才对。<br>这个时候就是mock发挥作用的时候了。通过mock模拟掉影响A模块的部分（B模块）。至于mock掉的部分（B模块）应该由其它用例来测试。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">def B_error(num):</span><br><span class="line">    return &quot;222w&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def B_proper(num):</span><br><span class="line">    return num</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def A(num):</span><br><span class="line">    result = B_proper(num)  # B_proper()</span><br><span class="line">    return result + 2</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">import unittest</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class MyTestCase(unittest.TestCase):</span><br><span class="line"></span><br><span class="line">    def test_add_and_multiply(self):</span><br><span class="line">        num = 3</span><br><span class="line">        addition = A(num)</span><br><span class="line">        self.assertEqual(5, addition)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    unittest.main()</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure><p>mock.pathc</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;在项目的单元测试过程中，会遇到：&quot;&gt;&lt;a href=&quot;#在项目的单元测试过程中，会遇到：&quot; class=&quot;headerlink&quot; title=&quot;在项目的单元测试过程中，会遇到：&quot;&gt;&lt;/a&gt;在项目的单元测试过程中，会遇到：&lt;/h1&gt;&lt;p&gt;1、接口的依赖&lt;br&gt;2、外</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="https://www.doublekai.com/2025/12/30/Python%E5%AE%9E%E7%8E%B0%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B/"/>
-    <id>https://www.doublekai.com/2025/12/30/Python%E5%AE%9E%E7%8E%B0%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B/</id>
-    <published>2025-12-30T06:21:15.777Z</published>
-    <updated>2025-12-30T06:21:15.777Z</updated>
+    <title>Python实现线性模型</title>
+    <link href="https://www.doublekai.com/2021/08/18/Python%E5%AE%9E%E7%8E%B0%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B/"/>
+    <id>https://www.doublekai.com/2021/08/18/Python%E5%AE%9E%E7%8E%B0%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B/</id>
+    <published>2021-08-18T06:10:05.000Z</published>
+    <updated>2026-01-08T02:47:17.803Z</updated>
     
     <content type="html"><![CDATA[<h3 id="K-Means算法"><a href="#K-Means算法" class="headerlink" title="K-Means算法"></a>K-Means算法</h3><p>对于给定的样本集，按照样本之间的距离大小，将样本集划分为K个簇。让簇内的点尽量紧密的连在一起，而让簇间的距离尽量的大。<br>基本概念：<br><img src="media/16375674791371.jpg"></p><p>　　　　K-Means采用的启发式方式很简单，用下面一组图就可以形象的描述。</p><p><img src="media/16375666007817.jpg"></p><p>　　　　上图a表达了初始的数据集，假设k=2。在图b中，我们随机选择了两个k类所对应的类别质心，即图中的红色质心和蓝色质心，然后分别求样本中所有点到这两个质心的距离，并标记每个样本的类别为和该样本距离最小的质心的类别，如图c所示，经过计算样本和红色质心和蓝色质心的距离，我们得到了所有样本点的第一轮迭代后的类别。此时我们对我们当前标记为红色和蓝色的点分别求其新的质心，如图4所示，新的红色质心和蓝色质心的位置已经发生了变动。图e和图f重复了我们在图c和图d的过程，即将所有点的类别标记为距离最近的质心的类别并求新的质心。最终我们得到的两个类别如图f。</p><p>　　　　当然在实际K-Mean算法中，我们一般会多次运行图c和图d，才能达到最终的比较优的类别。</p>]]></content>
     
@@ -89,6 +49,26 @@
       
       
     <summary type="html">&lt;h4 id=&quot;Nginx的背景&quot;&gt;&lt;a href=&quot;#Nginx的背景&quot; class=&quot;headerlink&quot; title=&quot;Nginx的背景&quot;&gt;&lt;/a&gt;Nginx的背景&lt;/h4&gt;&lt;p&gt;Nginx和Apache一样都是一种WEB服务器。基于REST架构风格，以URI（Unifo</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>python mock的使用</title>
+    <link href="https://www.doublekai.com/2021/08/18/python%20mock%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <id>https://www.doublekai.com/2021/08/18/python%20mock%E7%9A%84%E4%BD%BF%E7%94%A8/</id>
+    <published>2021-08-18T06:10:05.000Z</published>
+    <updated>2026-01-08T02:47:25.972Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="在项目的单元测试过程中，会遇到："><a href="#在项目的单元测试过程中，会遇到：" class="headerlink" title="在项目的单元测试过程中，会遇到："></a>在项目的单元测试过程中，会遇到：</h1><p>1、接口的依赖<br>2、外部接口调用<br>3、测试环境非常复杂</p><p>单元测试应该只针对当前单元进行测试, 所有的内部或外部的依赖应该是稳定的, 已经在别处进行测试过的.使用mock 就可以对外部依赖组件实现进行模拟并且替换掉, 从而使得单元测试将焦点只放在当前的单元功能。</p><p>我们要测试A模块，然后A模块依赖于B模块的调用。但是，由于B模块的改变，导致了A模块返回结果的改变，从而使A模块的测试用例失败。其实，对于A模块，以及A模块的用例来说，并没有变化，不应该失败才对。<br>这个时候就是mock发挥作用的时候了。通过mock模拟掉影响A模块的部分（B模块）。至于mock掉的部分（B模块）应该由其它用例来测试。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">def B_error(num):</span><br><span class="line">    return &quot;222w&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def B_proper(num):</span><br><span class="line">    return num</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def A(num):</span><br><span class="line">    result = B_proper(num)  # B_proper()</span><br><span class="line">    return result + 2</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">import unittest</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class MyTestCase(unittest.TestCase):</span><br><span class="line"></span><br><span class="line">    def test_add_and_multiply(self):</span><br><span class="line">        num = 3</span><br><span class="line">        addition = A(num)</span><br><span class="line">        self.assertEqual(5, addition)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    unittest.main()</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure><p>mock.pathc</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;在项目的单元测试过程中，会遇到：&quot;&gt;&lt;a href=&quot;#在项目的单元测试过程中，会遇到：&quot; class=&quot;headerlink&quot; title=&quot;在项目的单元测试过程中，会遇到：&quot;&gt;&lt;/a&gt;在项目的单元测试过程中，会遇到：&lt;/h1&gt;&lt;p&gt;1、接口的依赖&lt;br&gt;2、外</summary>
       
     
     
@@ -332,6 +312,26 @@
       
       
     <summary type="html">&lt;h1 id=&quot;Django入门笔记&quot;&gt;&lt;a href=&quot;#Django入门笔记&quot; class=&quot;headerlink&quot; title=&quot;Django入门笔记&quot;&gt;&lt;/a&gt;Django入门笔记&lt;/h1&gt;&lt;h2 id=&quot;Django安装-python2-7&quot;&gt;&lt;a href=&quot;#Dja</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>机器学习1（模型评估与选择</title>
+    <link href="https://www.doublekai.com/2020/10/26/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A01%EF%BC%88%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9%EF%BC%89/"/>
+    <id>https://www.doublekai.com/2020/10/26/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A01%EF%BC%88%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9%EF%BC%89/</id>
+    <published>2020-10-26T09:32:59.000Z</published>
+    <updated>2026-01-08T02:47:01.660Z</updated>
+    
+    <content type="html"><![CDATA[<p>我们把分类错误的样本数占样本总数的比例称为“错误率”(error rate)，即如果在m个样本中有a个样本分类错误，则错误率E=a/m；相应的，1-a/m称为“精度”，即“精度=1-错误率”。更一般地，我们把学习器的实际预测输出与样本的真实输出之间的差异称为“误差”(error)，学习器在训练集上的误差称为“训练误差”(training error)或“经验误差”(empirical error)，在新样本上的误差称为“泛化误差”(generalization error)。显然，我们希望得到泛化误差小的学习器。然而，我们事先并不知道新样本是什么样，实际能做的是努力使经验误差最小化。在很多情况下，我们可以学得一个经验误差很小，在训练集上表现很好的学习器，例如甚至对所有训练样本都分类正确，即分类错误率为零，分类精度为100%，但这是不是我们想要的学习器呢？遗憾的是，这样的学习器在多数情况下都不好。</p><p>完整的数据集表示为T={(x1,y1),(x2,y2),(x2,y2),…,(xi,yi)}，对于一个学习机而言，不是所有的数据都用于训练学习模型，而是会被分为三个部分：训练数据、交叉验证数据、测试数据。</p><ul><li>  训练数据(training data)：顾名思义，训练数据用于训练学习模型，通常比例不低于总数据量的一半。</li><li>  交叉验证数据(cross validation data)：交叉验证数据用于衡量训练过程中模型的好坏，因为机器学习算法大部分都不是通过解析法得到的，而是通过不断迭代来慢慢优化模型，所以交叉验证数据就可以用来监视模型训练时候的性能变化。</li><li>  测试数据(testing data)：在模型训练好了之后，测试数据用于衡量最终模型的性能好坏，这也是模型性能好坏的衡量指标，交叉验证的指标只能用于监视和辅助模型训练，不能用来代表模型好坏，所以哪怕交叉验证的准确度是100%而测试数据的准确度是10%，那么模型也是不能被认可的。通常交叉验证和测试数据的比例各占一小半。</li></ul><p>欠拟合时，模型在训练集和测试集上都有很大误差（高偏差）；过拟合时，模型在训练集上可能误差很小，但是在测试集上误差很大（高方差）。如果模型在训练集上误差很大，且在测试集上的误差要更大的多，那么该模型同时有着高偏差和高方差。</p><p>  防止欠拟合方法：不要选用过于简单的模型</p><p>  防止过拟合方法：不要选用过于复杂的模型；数据集扩增（可以是寻找更多的训练集，也可以是对原训练集做处理，比如对原图片翻转缩放裁剪等）；正则化；Early stopping(在测试集上的误差率降到最低就停止训练，而不是不断降低在训练集上的误差)</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;我们把分类错误的样本数占样本总数的比例称为“错误率”(error rate)，即如果在m个样本中有a个样本分类错误，则错误率E=a/m；相应的，1-a/m称为“精度”，即“精度=1-错误率”。更一般地，我们把学习器的实际预测输出与样本的真实输出之间的差异称为“误差”(err</summary>
       
     
     
