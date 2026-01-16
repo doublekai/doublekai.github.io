@@ -1,0 +1,254 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> Aiyly - 用自然语言查询数据库的AI智能助手 · Doublekai的博客</title><meta name="description" content="Aiyly - 用自然语言查询数据库的AI智能助手 - DOUBLEKAI"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://www.doublekai.com/atom.xml" title="Doublekai的博客"><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="Doublekai的博客" type="application/atom+xml">
+</head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="https://ai.aiyly.com" target="_blank" class="nav-list-link">AI</a></li><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/doublekai?tab=repositories" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/about/" target="_self" class="nav-list-link">ABOUT</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Aiyly - 用自然语言查询数据库的AI智能助手</h1><div class="post-info">Jan 16, 2026</div><div class="post-content"><p>在当今数据驱动的时代，数据库查询已经成为企业日常运营中不可或缺的一部分。然而，传统的SQL查询方式往往需要专业的技术背景，这对于非技术人员来说是一个巨大的门槛。今天，我要向大家介绍一款革命性的工具——<a target="_blank" rel="noopener" href="https://ai.aiyly.com/">Aiyly</a>，它能够让你用自然语言直接查询MySQL数据库，彻底改变你与数据交互的方式。</p>
+<span id="more"></span>
+
+<h2 id="什么是Aiyly？"><a href="#什么是Aiyly？" class="headerlink" title="什么是Aiyly？"></a>什么是Aiyly？</h2><p><a target="_blank" rel="noopener" href="https://ai.aiyly.com/">Aiyly</a> 是一款基于人工智能的自然语言数据库分析代理（Agent）。简单来说，你只需要用日常的中文或英文描述你想要查询的数据，<a target="_blank" rel="noopener" href="https://ai.aiyly.com/">Aiyly</a> 就能自动将其转换为准确的SQL语句并执行查询，最后以易于理解的方式呈现结果。</p>
+<h3 id="核心特性"><a href="#核心特性" class="headerlink" title="核心特性"></a>核心特性</h3><p><strong>1. 自然语言查询</strong></p>
+<p>不再需要记忆复杂的SQL语法！你可以这样提问：</p>
+<ul>
+<li>“上个月销售额最高的前10个产品是什么？”</li>
+<li>“哪些客户在过去一年内没有下过订单？”</li>
+<li>“按地区统计今年的订单总金额”</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://ai.aiyly.com/">Aiyly</a> 会自动理解你的意图，生成对应的SQL查询语句，并返回精确的结果。</p>
+<p><strong>2. 智能Schema理解</strong></p>
+<p>在使用 <a target="_blank" rel="noopener" href="https://ai.aiyly.com/">Aiyly</a> 之前，你可以配置你的数据库结构（Schema）和业务指标（Metrics）。系统会深度理解你的表结构、字段含义以及业务逻辑，从而在查询时能够准确地选择正确的表和字段。</p>
+<p><strong>3. 安全可靠</strong></p>
+<p>数据安全是 <a target="_blank" rel="noopener" href="https://ai.aiyly.com/">Aiyly</a> 的首要考量：</p>
+<ul>
+<li><strong>只读查询</strong>：系统仅支持SELECT查询，完全禁止INSERT、UPDATE、DELETE等写操作</li>
+<li><strong>白名单验证</strong>：所有表名和字段名都经过严格的白名单校验</li>
+<li><strong>参数化查询</strong>：防止SQL注入攻击</li>
+<li><strong>敏感关键词过滤</strong>：在执行前检查并阻止潜在的危险操作</li>
+</ul>
+<h2 id="技术架构详解"><a href="#技术架构详解" class="headerlink" title="技术架构详解"></a>技术架构详解</h2><p>作为一名技术人员，我深知了解工具背后的技术架构对于正确使用它至关重要。让我详细介绍 <a target="_blank" rel="noopener" href="https://ai.aiyly.com/">Aiyly</a> 的技术实现。</p>
+<h3 id="后端框架"><a href="#后端框架" class="headerlink" title="后端框架"></a>后端框架</h3><p><a target="_blank" rel="noopener" href="https://ai.aiyly.com/">Aiyly</a> 采用 <strong>Midway.js 3.x</strong> 作为后端框架，这是一个基于 TypeScript 的 Node.js 企业级框架。选择这个框架的原因包括：</p>
+<ul>
+<li><strong>TypeScript 原生支持</strong>：提供完整的类型检查，减少运行时错误</li>
+<li><strong>依赖注入</strong>：采用 IoC（控制反转）容器，使代码更加模块化和可测试</li>
+<li><strong>装饰器模式</strong>：简化了路由、中间件和服务的定义</li>
+</ul>
+<h3 id="数据库层"><a href="#数据库层" class="headerlink" title="数据库层"></a>数据库层</h3><p>系统使用 <strong>TypeORM 0.3.x</strong> 作为ORM层，配合 MySQL 数据库：</p>
+<ul>
+<li><strong>Snake Case 命名策略</strong>：代码中使用驼峰命名（camelCase），数据库中自动转换为下划线命名（snake_case）</li>
+<li><strong>实体映射</strong>：通过装饰器定义实体类，自动处理数据库表的创建和迁移</li>
+<li><strong>连接池管理</strong>：高效管理数据库连接，确保在高并发场景下的稳定性</li>
+</ul>
+<h3 id="AI-Agent-核心"><a href="#AI-Agent-核心" class="headerlink" title="AI Agent 核心"></a>AI Agent 核心</h3><p>这是 <a target="_blank" rel="noopener" href="https://ai.aiyly.com/">Aiyly</a> 最核心的部分——一个手写的 AI Agent 系统，没有依赖任何现成的 Agent 框架：</p>
+<p><strong>Agent 循环机制</strong></p>
+<p>Agent 采用迭代式的工具调用机制，最多支持10次迭代：</p>
+<ol>
+<li>接收用户的自然语言查询</li>
+<li>AI 分析查询意图，决定需要调用哪些工具</li>
+<li>执行工具调用（如生成SQL、查询数据库）</li>
+<li>分析工具返回结果</li>
+<li>如果需要更多信息，继续迭代；否则生成最终回答</li>
+</ol>
+<p><strong>流式响应支持</strong></p>
+<p>为了提供更好的用户体验，<a target="_blank" rel="noopener" href="https://ai.aiyly.com/">Aiyly</a> 支持流式响应。这意味着你不需要等待整个查询完成，而是可以实时看到 AI 的思考过程和中间结果。</p>
+<p><strong>工具系统</strong></p>
+<p>Agent 配备了专门的工具来完成数据库查询任务：</p>
+<ul>
+<li><strong>SQL Builder 工具</strong>：安全地构建 SQL 查询语句</li>
+<li><strong>动态查询工具</strong>：执行用户配置的任意表的查询</li>
+</ul>
+<h3 id="模块化设计"><a href="#模块化设计" class="headerlink" title="模块化设计"></a>模块化设计</h3><p><a target="_blank" rel="noopener" href="https://ai.aiyly.com/">Aiyly</a> 采用清晰的模块化架构：</p>
+<table>
+<thead>
+<tr>
+<th>模块</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>auth</td>
+<td>JWT + Google OAuth 身份认证</td>
+</tr>
+<tr>
+<td>user</td>
+<td>用户管理、MySQL配置存储、Schema/Metrics存储</td>
+</tr>
+<tr>
+<td>agent</td>
+<td>AI Agent 核心，包含工具系统</td>
+</tr>
+<tr>
+<td>conversation</td>
+<td>对话历史持久化</td>
+</tr>
+</tbody></table>
+<p>每个模块都遵循统一的文件结构：</p>
+<ul>
+<li><code>*.entity.ts</code> - 数据库实体定义</li>
+<li><code>*.service.ts</code> - 业务逻辑层</li>
+<li><code>*.controller.ts</code> - HTTP 接口层</li>
+<li><code>*.dto.ts</code> - 数据传输对象，包含验证规则</li>
+</ul>
+<h2 id="如何使用Aiyly？"><a href="#如何使用Aiyly？" class="headerlink" title="如何使用Aiyly？"></a>如何使用Aiyly？</h2><p>访问 <a target="_blank" rel="noopener" href="https://ai.aiyly.com/">ai.aiyly.com</a> 开始你的智能数据查询之旅！</p>
+<h3 id="第一步：注册登录"><a href="#第一步：注册登录" class="headerlink" title="第一步：注册登录"></a>第一步：注册登录</h3><p><a target="_blank" rel="noopener" href="https://ai.aiyly.com/">Aiyly</a> 支持多种登录方式：</p>
+<ul>
+<li><strong>JWT 认证</strong>：传统的用户名密码登录</li>
+<li><strong>Google OAuth</strong>：使用 Google 账号一键登录</li>
+</ul>
+<h3 id="第二步：配置数据库连接"><a href="#第二步：配置数据库连接" class="headerlink" title="第二步：配置数据库连接"></a>第二步：配置数据库连接</h3><p>登录后，你需要配置你的 MySQL 数据库连接信息：</p>
+<ul>
+<li>数据库主机地址</li>
+<li>端口号</li>
+<li>用户名和密码</li>
+<li>数据库名称</li>
+</ul>
+<p>请放心，<a target="_blank" rel="noopener" href="https://ai.aiyly.com/">Aiyly</a> 会安全地存储你的配置信息，并且只会执行只读查询。</p>
+<h3 id="第三步：定义Schema和Metrics"><a href="#第三步：定义Schema和Metrics" class="headerlink" title="第三步：定义Schema和Metrics"></a>第三步：定义Schema和Metrics</h3><p>这是让 <a target="_blank" rel="noopener" href="https://ai.aiyly.com/">Aiyly</a> 理解你业务数据的关键步骤：</p>
+<p><strong>Schema 定义</strong></p>
+<p>告诉系统你有哪些表，每个表有哪些字段，以及字段的业务含义。例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">表名：orders（订单表）</span><br><span class="line">字段：</span><br><span class="line">- id：订单ID</span><br><span class="line">- customer_id：客户ID</span><br><span class="line">- total_amount：订单总金额</span><br><span class="line">- created_at：创建时间</span><br><span class="line">- status：订单状态（pending/paid/shipped/completed）</span><br></pre></td></tr></table></figure>
+
+<p><strong>Metrics 定义</strong></p>
+<p>定义常用的业务指标和计算方式。例如：</p>
+<ul>
+<li>销售额 = SUM(total_amount)</li>
+<li>订单数 = COUNT(id)</li>
+<li>平均客单价 = AVG(total_amount)</li>
+</ul>
+<h3 id="第四步：开始对话查询"><a href="#第四步：开始对话查询" class="headerlink" title="第四步：开始对话查询"></a>第四步：开始对话查询</h3><p>一切准备就绪后，你就可以用自然语言开始查询了！</p>
+<p>试试这些查询：</p>
+<ul>
+<li>“查询本月的总销售额”</li>
+<li>“找出购买次数最多的10个客户”</li>
+<li>“统计每个月的订单数量变化趋势”</li>
+<li>“哪些产品的库存低于安全线？”</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://ai.aiyly.com/">Aiyly</a> 会理解你的问题，自动构建SQL查询，执行后以清晰的方式展示结果。</p>
+<h2 id="错误处理机制"><a href="#错误处理机制" class="headerlink" title="错误处理机制"></a>错误处理机制</h2><p><a target="_blank" rel="noopener" href="https://ai.aiyly.com/">Aiyly</a> 拥有完善的错误处理机制，确保用户获得清晰的反馈：</p>
+<h3 id="统一响应格式"><a href="#统一响应格式" class="headerlink" title="统一响应格式"></a>统一响应格式</h3><p>所有API响应都采用统一的格式：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;code&quot;</span>: <span class="number">0</span>,</span><br><span class="line">  <span class="attr">&quot;msg&quot;</span>: <span class="string">&quot;success&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;data&quot;</span>: &#123; ... &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="错误码分类"><a href="#错误码分类" class="headerlink" title="错误码分类"></a>错误码分类</h3><p>系统定义了详细的错误码分类：</p>
+<table>
+<thead>
+<tr>
+<th>错误码范围</th>
+<th>类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>成功</td>
+</tr>
+<tr>
+<td>1xxx</td>
+<td>通用错误</td>
+</tr>
+<tr>
+<td>2xxx</td>
+<td>认证错误</td>
+</tr>
+<tr>
+<td>3xxx</td>
+<td>用户相关错误</td>
+</tr>
+<tr>
+<td>4xxx</td>
+<td>MySQL 相关错误</td>
+</tr>
+<tr>
+<td>5xxx</td>
+<td>对话相关错误</td>
+</tr>
+</tbody></table>
+<p>这样的设计让开发者能够快速定位问题，也让用户能够获得有意义的错误提示。</p>
+<h2 id="安全性保障"><a href="#安全性保障" class="headerlink" title="安全性保障"></a>安全性保障</h2><p>在使用任何涉及数据库的工具时，安全性都是首要考虑的因素。<a target="_blank" rel="noopener" href="https://ai.aiyly.com/">Aiyly</a> 在安全方面做了充分的考量：</p>
+<h3 id="只读保护"><a href="#只读保护" class="headerlink" title="只读保护"></a>只读保护</h3><p>Agent 只支持 SELECT 查询，通过多重机制确保：</p>
+<ol>
+<li><strong>SQL Builder 限制</strong>：SQL构建器只生成SELECT语句</li>
+<li><strong>白名单验证</strong>：表名和字段名必须在预定义的白名单中</li>
+<li><strong>关键词过滤</strong>：在执行前检查SQL中是否包含危险关键词</li>
+</ol>
+<h3 id="身份认证"><a href="#身份认证" class="headerlink" title="身份认证"></a>身份认证</h3><ul>
+<li>JWT Token 认证，支持过期时间配置</li>
+<li>全局中间件保护，需要认证的接口必须携带有效Token</li>
+<li>使用 <code>@Public()</code> 装饰器明确标记公开接口</li>
+</ul>
+<h3 id="数据隔离"><a href="#数据隔离" class="headerlink" title="数据隔离"></a>数据隔离</h3><p>每个用户只能访问自己配置的数据库，用户之间的数据完全隔离。</p>
+<h2 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h2><p><a target="_blank" rel="noopener" href="https://ai.aiyly.com/">Aiyly</a> 适用于多种业务场景：</p>
+<h3 id="1-业务分析师"><a href="#1-业务分析师" class="headerlink" title="1. 业务分析师"></a>1. 业务分析师</h3><p>不需要学习SQL，直接用自然语言提问：</p>
+<ul>
+<li>“本季度各区域的销售对比如何？”</li>
+<li>“退货率最高的产品类别是什么？”</li>
+<li>“新客户的首单转化率是多少？”</li>
+</ul>
+<h3 id="2-产品经理"><a href="#2-产品经理" class="headerlink" title="2. 产品经理"></a>2. 产品经理</h3><p>快速获取产品数据支持决策：</p>
+<ul>
+<li>“用户活跃度在过去三个月的变化趋势”</li>
+<li>“哪个功能的使用率最低？”</li>
+<li>“付费用户和免费用户的行为有什么差异？”</li>
+</ul>
+<h3 id="3-运营人员"><a href="#3-运营人员" class="headerlink" title="3. 运营人员"></a>3. 运营人员</h3><p>实时监控业务指标：</p>
+<ul>
+<li>“今天的订单量比昨天同期增长了多少？”</li>
+<li>“优惠券的核销率是多少？”</li>
+<li>“哪些用户即将流失（30天未登录）？”</li>
+</ul>
+<h3 id="4-开发人员"><a href="#4-开发人员" class="headerlink" title="4. 开发人员"></a>4. 开发人员</h3><p>快速验证数据、调试问题：</p>
+<ul>
+<li>“检查用户ID为12345的所有订单”</li>
+<li>“统计今天新增的异常日志数量”</li>
+<li>“查找状态异常的任务记录”</li>
+</ul>
+<h2 id="与传统方式的对比"><a href="#与传统方式的对比" class="headerlink" title="与传统方式的对比"></a>与传统方式的对比</h2><table>
+<thead>
+<tr>
+<th>特性</th>
+<th>传统SQL查询</th>
+<th><a target="_blank" rel="noopener" href="https://ai.aiyly.com/">Aiyly</a></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>学习成本</td>
+<td>需要掌握SQL语法</td>
+<td>零学习成本，使用自然语言</td>
+</tr>
+<tr>
+<td>查询效率</td>
+<td>需要编写和调试SQL</td>
+<td>直接描述需求即可</td>
+</tr>
+<tr>
+<td>安全性</td>
+<td>依赖开发者自觉</td>
+<td>系统级别的只读保护</td>
+</tr>
+<tr>
+<td>错误处理</td>
+<td>原始数据库错误</td>
+<td>友好的错误提示</td>
+</tr>
+<tr>
+<td>历史记录</td>
+<td>需要手动保存</td>
+<td>自动保存对话历史</td>
+</tr>
+<tr>
+<td>协作分享</td>
+<td>复制粘贴SQL</td>
+<td>分享对话链接</td>
+</tr>
+</tbody></table>
+<h2 id="未来展望"><a href="#未来展望" class="headerlink" title="未来展望"></a>未来展望</h2><p><a target="_blank" rel="noopener" href="https://ai.aiyly.com/">Aiyly</a> 还在不断进化中，未来计划支持的功能包括：</p>
+<ul>
+<li><strong>更多数据库支持</strong>：PostgreSQL、MongoDB、ClickHouse等</li>
+<li><strong>数据可视化</strong>：自动生成图表展示查询结果</li>
+<li><strong>定时报表</strong>：设置定时查询，自动发送报表</li>
+<li><strong>团队协作</strong>：支持团队共享数据库配置和查询历史</li>
+<li><strong>API接口</strong>：提供API让其他系统集成调用</li>
+</ul>
+<h2 id="立即体验"><a href="#立即体验" class="headerlink" title="立即体验"></a>立即体验</h2><p>还在等什么？立即访问 <a target="_blank" rel="noopener" href="https://ai.aiyly.com/">ai.aiyly.com</a> 开始你的智能数据查询之旅！</p>
+<p>无论你是技术人员还是业务人员，<a target="_blank" rel="noopener" href="https://ai.aiyly.com/">Aiyly</a> 都能帮助你更高效地与数据对话。告别复杂的SQL语法，用自然语言释放数据的价值！</p>
+<p>如果你在使用过程中有任何问题或建议，欢迎在留言板留言，或者直接在 <a target="_blank" rel="noopener" href="https://ai.aiyly.com/">Aiyly</a> 平台上反馈。我们会持续改进，为你提供更好的数据查询体验。</p>
+<hr>
+<p><strong>相关链接：</strong></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://ai.aiyly.com/">Aiyly 官网</a></li>
+<li><a target="_blank" rel="noopener" href="https://ai.aiyly.com/">立即开始使用</a></li>
+</ul>
+</div></article></div></main><footer><div class="paginator"><a href="/2026/01/08/%E6%AD%A6%E5%8A%9F%E5%B1%B1%E5%BE%92%E6%AD%A5%E6%94%BB%E7%95%A5/" class="next">下一篇</a></div><div class="copyright"><p>© 2015 - 2026 DOUBLEKAI</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script></body></html>
