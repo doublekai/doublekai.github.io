@@ -7,7 +7,7 @@
     "clean": "hexo clean",
     "deploy": "hexo deploy",
     "server": "hexo server",
-    "push": "sh scripts/publish.sh"
+    "push": "sh publish.sh"
   },
   "hexo": {
     "version": "5.4.2"
