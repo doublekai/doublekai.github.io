@@ -34,7 +34,7 @@ title: 个人简历
 
 <div class="info-grid">
 <span class="info-item">1997年 · 安徽</span>
-<span class="info-item">合肥大学 · 2021届</span>
+<span class="info-item">合肥大学 · 2021毕业</span>
 <span class="info-item">wdoublekai@126.com</span>
 <span class="info-item">微信: wdoublekai</span>
 </div>
@@ -55,7 +55,9 @@ title: 个人简历
 
 **AI/LLM**：OpenAI SDK / Agent 开发 / Function Calling / Prompt Engineering
 
-**运维部署**：Docker / Nginx / AWS / SSH 隧道 / GitHub Actions
+**运维部署**：Linux / Docker / Nginx / AWS / 阿里云 / GitLab CI/CD
+
+**自动化能力**：服务器选购与初始化 / SSL 证书配置 / 域名解析 / CI/CD 流水线搭建 / 项目从 0 到 1 部署上线
 
 **其他技能**：Git / SEO 优化 / Web 安全 / Shell 脚本
 
@@ -154,6 +156,54 @@ Pacdora ([pacdora.com](https://www.pacdora.com)) 是包小盒的海外版本，�
 - URL 规范化中间件：统一处理末尾斜杠、大小写，301 重定向
 - 内链自动插入：内容渲染时根据关键词库自动添加内链
 - Redis 缓存策略：热门内容缓存，提升响应速度
+
+---
+
+### 服务器运维与自动化部署（0-1 全流程）
+
+具备从零开始完成项目上线的全流程能力：
+
+**1. 服务器选购与初始化**
+- 根据业务需求选择云服务商（阿里云/AWS/腾讯云）和服务器配置
+- 系统初始化：安全组配置、SSH 密钥、用户权限、防火墙规则
+- 基础环境搭建：Node.js / Python / Docker / MySQL / Redis
+
+**2. 域名与 HTTPS 配置**
+- 域名购买、备案（国内）、DNS 解析配置
+- SSL 证书申请（Let's Encrypt / 阿里云免费证书）
+- Nginx 反向代理 + HTTPS 强制跳转
+
+**3. CI/CD 自动化流水线**
+```yaml
+# GitLab CI 示例
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  script:
+    - npm install
+    - npm run build
+  artifacts:
+    paths:
+      - dist/
+
+deploy:
+  stage: deploy
+  script:
+    - rsync -avz dist/ user@server:/var/www/app/
+    - ssh user@server "pm2 reload app"
+  only:
+    - master
+```
+
+**4. 应用部署与进程管理**
+- Docker 容器化部署 / PM2 进程守护
+- Nginx 负载均衡、静态资源缓存
+- 日志收集与监控告警
+
+**完整部署能力**：代码提交 → 自动构建 → 自动测试 → 自动部署 → 服务上线
 
 ---
 
