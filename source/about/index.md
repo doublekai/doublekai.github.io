@@ -120,7 +120,7 @@ Pacdora ([pacdora.com](https://www.pacdora.com)) 是包小盒的海外版本，�
 
 ---
 
-## 个人项目 ([ai.aiyly.com](https://www.ai.aiyly.com))
+## 个人项目 ([ai.aiyly.com](https://ai.aiyly.com))
 
 ### AI Agent 数据分析平台（0-1）
 
