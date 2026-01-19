@@ -34,7 +34,7 @@ title: 个人简历
 
 <div class="info-grid">
 <span class="info-item">1997年 · 安徽</span>
-<span class="info-item">合肥大学 · 2021毕业</span>
+<span class="info-item">合肥大学 · 2021毕业 本科</span>
 <span class="info-item">wdoublekai@126.com</span>
 <span class="info-item">微信: wdoublekai</span>
 </div>
