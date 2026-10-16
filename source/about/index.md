@@ -32,7 +32,7 @@ title: 个人简历
 <div class="resume">
 <div class="resume-header">
 <h1>王凯</h1>
-<p class="resume-role">后端开发工程师 · Node.js / Python · AI 应用开发</p>
+<p class="resume-role">后端 / AI Agent 开发工程师 · Node.js / TypeScript / Python</p>
 <p class="resume-meta">合肥大学 · 本科 · 2021 年毕业 ｜ 1997 年 · 安徽</p>
 <p class="resume-meta"><a href="mailto:wdoublekai@126.com">wdoublekai@126.com</a> ｜ 微信：wdoublekai</p>
 <p class="resume-meta"><a href="https://github.com/doublekai">GitHub</a> ｜ <a href="https://www.aiyly.com">技术博客</a> ｜ <a href="https://ai.aiyly.com">AI 数据分析平台</a></p>
@@ -41,13 +41,14 @@ title: 个人简历
 
 ## 个人简介
 
-以 Node.js、TypeScript、Python 为主要技术栈，具有在线设计平台、支付订单、海外业务及隐私计算产品的后端开发经验。近期重点开发 Pacdora 多模态包装设计 Agent、真实刀板与 3D 联动、设计图分层和异步计费系统，具备从模型工具调用到业务执行、失败恢复及性能优化的落地经验。独立搭建 AI 数据分析项目，并具备 Linux、Docker、Nginx 与 CI/CD 部署能力。
+以 Node.js、TypeScript、Python 为主要技术栈，具有多模态 Agent 与复杂业务后端开发经验。参与 ReAct 运行时演进，开发工具调用、上下文与持久化记忆，并落地包装生成、真实刀板与 3D 联动、设计图分层等能力；同时实现异步执行、积分计费和失败恢复，参与性能优化。具有支付订单、海外业务及隐私计算产品经验，能够将模型能力接入真实业务，并完成从接口开发到部署上线的工程交付。
 
 ## 专业技能
 
+- **Agent 开发**：多模态交互、ReAct 决策循环、工具注册与参数校验、上下文与持久化记忆、执行边界和任务事件记录。
 - **后端开发**：Node.js、TypeScript、Midway.js、Python、FastAPI、Django、TypeORM；具备微服务与业务接口开发经验。
 - **数据与缓存**：MySQL、PostgreSQL、Redis、SQLite；具备订单、账单、内容及数据分析场景的开发经验。
-- **AI 应用**：多模态大模型、ReAct、OpenAI SDK、Function Calling、上下文与持久化记忆、异步任务及 SSE 流式响应。
+- **任务与交互**：OpenAI SDK、Function Calling、异步任务状态持久化、重试幂等与结果复用、增量轮询及 SSE 流式响应。
 - **部署与工程化**：Linux、Docker、Nginx、Shell、Git、GitLab CI/CD；使用 AWS 与阿里云完成应用部署、域名及 HTTPS 配置。
 - **业务能力**：支付与订阅、订单流转、多语言与翻译流程、SEO 后端支持、Web 安全；了解 Vue、React。
 

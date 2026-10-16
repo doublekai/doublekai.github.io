@@ -23,7 +23,7 @@ const { escapeHTML } = require('hexo-util');
    const entries=posts.slice((page-1)*10,page*10).map(p=>`<li class="post-list-item"><article class="post-block"><h2 class="post-title"><a class="post-title-link" href="/${p.path}">${escapeHTML(p.title)}</a></h2><div class="post-info">${p.date.tz('Asia/Shanghai').format('YYYY-MM-DD')}</div><a class="read-more" href="/${p.path}">阅读全文 →</a></article></li>`).join('');
    const link=n=>n===1?'/tech/':`/tech/page/${n}/`;
    const pager=(page>1?`<a class="prev" href="${link(page-1)}">上一页</a>`:'')+(page<pages?`<a class="next" href="${link(page+1)}">下一页</a>`:'');
-   write(page===1?'tech/index.html':`tech/page/${page}/index.html`,shell('技术与实践',`<div class="tech-heading"><p class="eyebrow">TECHNOLOGY / 技术记录</p><h1>技术与实践</h1><p>后端开发、AI Agent、数据库与 Web 技术。<a href="/personal/">徒步与生活记录在这里 →</a></p></div><ul class="home post-list">${entries}</ul>`,pager));
+   write(page===1?'tech/index.html':`tech/page/${page}/index.html`,shell('技术与实践',`<div class="tech-heading"><p class="eyebrow">技术探索 / 工程实践</p><h1>技术与实践</h1><p>后端开发、AI Agent、数据库与 Web 技术。<a href="/personal/">徒步与生活记录在这里 →</a></p></div><ul class="home post-list">${entries}</ul>`,pager));
   }
   fs.copyFileSync(path.join(__dirname,'source/css/profile.css'),path.join(root,'css/profile.css'));
   const items=[['/','首页'],['/tech/','技术'],['/personal/','生活'],['/about/','简历'],['https://ai.aiyly.com','AI'],['https://github.com/doublekai','GitHub']];

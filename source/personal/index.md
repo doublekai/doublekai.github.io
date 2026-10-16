@@ -2,7 +2,7 @@
 title: 山野与日常 · 王凯
 ---
 <div class="profile-hero life-hero">
-<p class="eyebrow">PERSONAL / 工作之外</p>
+<p class="eyebrow">个人生活 / 工作之外</p>
 <h1>有空，就去山里走走。</h1>
 <p class="profile-intro">我是王凯。技术之外，徒步是我生活里很重要的一部分。走过雨崩、武功山，也爬过不少杭州周边的山。</p>
 </div>
