@@ -3,238 +3,122 @@ title: 个人简历
 ---
 
 <style>
+.resume { color: #333; line-height: 1.85; }
+.resume .resume-header { padding: 24px 0; border-bottom: 2px solid #27845e; margin-bottom: 28px; }
+.resume .resume-header h1 { margin: 0 0 8px; font-size: 32px; }
+.resume .resume-role { color: #27845e; font-size: 17px; font-weight: 600; }
+.resume .resume-meta { color: #666; font-size: 14px; margin: 6px 0; }
+.resume h2 { margin-top: 32px; padding-bottom: 8px; border-bottom: 1px solid #e8e8e8; }
+.resume h3 { margin-top: 24px; line-height: 1.5; }
+.resume li { margin-bottom: 8px; }
+.resume .print-btn { margin-top: 12px; padding: 8px 16px; background: #27845e; color: #fff; border: 0; border-radius: 5px; cursor: pointer; font: inherit; }
+@media (max-width: 600px) { .resume .resume-header h1 { font-size: 28px; } }
 @media print {
-  body { font-size: 12px !important; }
-  .header, .footer, nav, .sidebar { display: none !important; }
-  a { color: #333 !important; text-decoration: none !important; }
-  pre { font-size: 10px !important; padding: 8px !important; }
-  h1 { font-size: 20px !important; }
-  h2 { font-size: 16px !important; page-break-after: avoid; }
-  h3 { font-size: 14px !important; page-break-after: avoid; }
-  .resume-header { border-bottom: 2px solid #333; padding-bottom: 10px; margin-bottom: 20px; }
-  .no-print { display: none !important; }
+  @page { margin: 14mm; }
+  body { font-size: 11px !important; background: #fff !important; }
+  header, footer, .post-title, .post-info, .no-print { display: none !important; }
+  .wrap, main.container, .post, .post-block { width: auto !important; max-width: none !important; margin: 0 !important; padding: 0 !important; }
+  .resume { line-height: 1.55; }
+  .resume .resume-header { padding: 0 0 10px; margin-bottom: 12px; }
+  .resume .resume-header h1 { font-size: 24px; }
+  .resume h2 { font-size: 16px; margin-top: 18px; break-after: avoid; }
+  .resume h3 { font-size: 13px; margin-top: 14px; break-after: avoid; }
+  .resume li { margin-bottom: 4px; }
+  .resume a { color: #333 !important; text-decoration: none !important; }
+  .resume p, .resume li { orphans: 2; widows: 2; }
 }
-.resume-header { text-align: center; margin-bottom: 30px; }
-.resume-header h1 { margin-bottom: 10px; }
-.info-grid { display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; }
-.info-item { color: #666; }
-.print-btn {
-  position: fixed; right: 20px; top: 100px;
-  padding: 10px 20px; background: #42b983; color: white;
-  border: none; border-radius: 4px; cursor: pointer; z-index: 1000;
-}
-.print-btn:hover { background: #3aa876; }
 </style>
 
-<button class="print-btn no-print" onclick="window.print()">打印简历</button>
-
+<div class="resume">
 <div class="resume-header">
-
-# 王凯
-
-<div class="info-grid">
-<span class="info-item">1997年 · 安徽</span>
-<span class="info-item">合肥大学 · 2021毕业 本科</span>
-<span class="info-item">wdoublekai@126.com</span>
-<span class="info-item">微信: wdoublekai</span>
+<h1>王凯</h1>
+<p class="resume-role">后端开发工程师 · Node.js / Python · AI 应用开发</p>
+<p class="resume-meta">合肥大学 · 本科 · 2021 年毕业 ｜ 1997 年 · 安徽</p>
+<p class="resume-meta"><a href="mailto:wdoublekai@126.com">wdoublekai@126.com</a> ｜ 微信：wdoublekai</p>
+<p class="resume-meta"><a href="https://github.com/doublekai">GitHub</a> ｜ <a href="https://www.aiyly.com">技术博客</a> ｜ <a href="https://ai.aiyly.com">AI 数据分析平台</a></p>
+<button class="print-btn no-print" type="button" onclick="window.print()">打印 / 保存 PDF</button>
 </div>
 
-</div>
+## 个人简介
 
-> **Talk is cheap, Show me the code**
-
----
+以 Node.js、Python 为主要技术栈，具有在线设计平台、支付订单、海外业务及隐私计算产品的后端开发经验。参与从业务需求、接口设计到开发上线的完整流程，具备 Linux、Docker、Nginx 与 CI/CD 部署能力。独立搭建 AI 数据分析项目，实现自然语言查询、工具调用与流式响应。
 
 ## 专业技能
 
-**后端开发**：Node.js / Midway.js / Python / FastAPI / Django / TypeORM
-
-**数据库**：MySQL / PostgreSQL / Redis / SQLite
-
-**前端开发**：Vue / React / TypeScript（了解）
-
-**AI/LLM**：OpenAI SDK / Agent 开发 / Function Calling / Prompt Engineering
-
-**运维部署**：Linux / Docker / Nginx / AWS / 阿里云 / GitLab CI/CD
-
-**自动化能力**：服务器选购与初始化 / SSL 证书配置 / 域名解析 / CI/CD 流水线搭建 / 项目从 0 到 1 部署上线
-
-**其他技能**：Git / SEO 优化 / Web 安全 / Shell 脚本
-
----
+- **后端开发**：Node.js、Midway.js、Python、FastAPI、Django、TypeORM；具备微服务与业务接口开发经验。
+- **数据与缓存**：MySQL、PostgreSQL、Redis、SQLite；具备订单、账单、内容及数据分析场景的开发经验。
+- **AI 应用**：OpenAI SDK、Function Calling、Agent 工具调用、Prompt Engineering、SSE 流式响应。
+- **部署与工程化**：Linux、Docker、Nginx、Shell、Git、GitLab CI/CD；使用 AWS 与阿里云完成应用部署、域名及 HTTPS 配置。
+- **业务能力**：支付与订阅、订单流转、多语言与翻译流程、SEO 后端支持、Web 安全；了解 Vue、React、TypeScript。
 
 ## 工作经历
 
-### 包小盒（Pacdora 海外版） | 2024.02 - 至今
+### 包小盒 / Pacdora ｜ 后端开发工程师
 
-**后端开发工程师** | Node.js / Midway.js / AWS
+**2022.08 — 至今**
 
-Pacdora ([pacdora.com](https://www.pacdora.com)) 是包小盒的海外版本，面向全球用户提供在线包装设计服务。
+**Pacdora 海外业务 · 2024.02 — 至今**
 
-**主要工作：**
+技术栈：Node.js / Midway.js / AWS · [pacdora.com](https://www.pacdora.com)
 
-- **国际化多语言系统**：设计并实现多语言架构，支持英语、西班牙语、法语等多语种切换
-- **AWS 服务集成**：使用 AWS S3、CloudFront、Lambda 等服务，优化海外用户访问体验
-- **翻译服务实现**：集成翻译 API，实现内容自动翻译和人工校对流程
-- **SEO 后端优化**：针对 Google 搜索优化，实现动态 Sitemap、结构化数据输出、多语言 hreflang 标签
-- **问题排查与修复**：快速定位并解决生产环境 Bug，保障系统稳定运行
+- **国际化与翻译**：设计并实现多语言架构，支持英语、西班牙语、法语等语言；集成翻译 API，衔接自动翻译与人工校对流程。
+- **AWS 服务集成**：使用 S3、CloudFront、Lambda 等服务，支持海外业务的资源存储、分发与访问体验优化。
+- **SEO 支持**：实现动态 Sitemap、结构化数据输出及多语言 hreflang 支持，配合海外搜索优化。
+- **线上维护**：定位并修复生产环境问题，参与系统稳定性维护。
 
----
+**国内业务 · 2022.08 — 2024.01**
 
-### 包小盒 | 2022.08 - 2024.01
+技术栈：Node.js / Midway.js / MySQL / Redis · [baoxiaohe.com](https://www.baoxiaohe.com)
 
-**后端开发工程师** | Node.js / Midway.js / MySQL / Redis
+- **订单与账单**：设计实现订单、账单微服务，覆盖业务下单、第三方支付回调与订单状态流转。
+- **支付与会员**：接入支付宝连续包月和微信支付 SDK，实现会员订阅、付费功能及高级模板、印刷定制等付费服务。
+- **运营与搜索优化**：支持折扣、限时抢购、赠品活动；参与网站结构、Meta 标签与 URL 规范优化。
+- **包小印从 0 到 1**：2023.02 — 2023.12 担任后端核心开发，团队由 2 名后端、2 名前端和 1 名测试组成。实现按盒型、数量、材质配置的报价引擎，以及购物车、合并下单、支付、供应商分单、发货和售后流程。
 
-包小盒 ([baoxiaohe.com](https://www.baoxiaohe.com)) 是国内领先的在线包装设计平台，用户可在线选择盒型、模板进行 3D 渲染和设计。
+### 北京八分量信息科技有限公司 ｜ Python 开发工程师
 
-**TOC 业务：**
+**2021.07 — 2022.07**
 
-- **订单中心微服务**：设计实现订单微服务和账单微服务，处理业务端下单、第三方支付回调、订单状态流转
-- **会员付费系统**：集成支付宝（连续包月）、微信支付 SDK，实现用户订阅和付费功能
-- **付费产品开发**：基于用户需求开发高级模板、印刷定制等付费服务
-- **SEO 重构**：分析关键词和竞对，优化网站结构、Meta 标签、URL 规范，提升搜索排名
-- **运营活动支持**：配合节日促销，实现打折优惠、限时抢购、赠品活动等功能
+技术栈：Python / FastAPI / PostgreSQL / Django
 
-**TOB 业务 - 包小印 ([yin.baoxiaohe.com](https://yin.baoxiaohe.com))：**
+- **隐私计算平台**：基于 FastAPI、PostgreSQL 开发平台后端，参与产品评审、概要设计与接口定义。
+- **存储组件**：实现数据存储模块，支持 HDFS、MySQL、PostgreSQL、SQLite 等存储介质。
+- **节点服务**：开发数据发布、联盟管理及线性回归、逻辑回归等机器学习任务相关功能。
+- **跨链大数据平台**：使用 Django、MySQL 开发企业级数据应用。
 
-- **0-1 项目搭建**：2023年2月-12月，后端核心开发（团队：后端2人、前端2人、测试1人）
-- **可配置报价器**：根据盒型、数量、材质等参数，实现灵活的价格计算引擎
-- **完整下单流程**：用户选盒型 → 下单 → 支付（对公/支付宝/微信）→ 订单分发供应商 → 发货 → 确认收货/售后
-- **购物车功能**：支持多商品合并下单，优化用户购买体验
+## 项目与实践
 
----
+### Aiyly · AI Agent 数据分析平台
 
-### 北京八分量信息科技有限公司 | 2021.07 - 2022.07
+**个人项目 · 从 0 到 1** ｜ [在线体验](https://ai.aiyly.com)
 
-**Python 开发工程师** | Python / FastAPI / PostgreSQL / Django
+技术栈：Midway.js / TypeORM / OpenAI SDK / MySQL
 
-从事隐私计算产品研发，产品由隐私计算框架、平台、节点三部分组成。
+面向自然语言数据库分析场景，用户配置 MySQL 连接、数据 Schema 和业务指标后，通过提问完成 SQL 查询与结果解读。
 
-**隐私计算产品（2021.10 - 2022.07）：**
-
-- **存储组件开发**：实现数据存储模块，支持 HDFS、MySQL、PostgreSQL、SQLite 多种存储介质
-- **隐私计算平台**：使用 FastAPI + PostgreSQL 开发平台后端，参与产品评审、概要设计、接口定义
-- **隐私计算节点**：开发节点服务，实现节点间数据发布、联盟管理、机器学习任务（线性回归、逻辑回归）
-
-**跨链大数据平台**：使用 Django + MySQL 开发企业级数据应用
-
----
-
-## 个人项目 ([ai.aiyly.com](https://ai.aiyly.com))
-
-### AI Agent 数据分析平台（0-1）
-
-**项目简介**：自然语言数据库分析平台，用户配置 MySQL 连接和业务 Schema，通过自然语言提问，系统自动生成 SQL、执行查询并解读结果。
-
-**技术栈**：Midway.js + TypeORM + OpenAI SDK + 手写 Agent 框架
-
-**核心架构**：
-```
-前端 → SSE Stream → AgentController → GAAgent(LLM) → Tool System → 用户数据库
-```
-
-**技术亮点**：
-
-1. **手写 Agent 框架**：不依赖 LangChain，直接使用 OpenAI SDK 实现 Function Calling，轻量可控
-2. **四层 SQL 安全防护**：
-   - 设计层：SQLBuilder 只生成 SELECT 语句
-   - 白名单：表名/列名必须在用户配置的 Schema 中
-   - 转义层：标识符只允许 `[a-zA-Z0-9_]`，反引号包裹
-   - 参数化：所有用户输入使用 `?` 占位符
-3. **全链路流式响应**：LLM 流式输出 → AsyncGenerator → SSE 推送 → 前端逐字显示
-4. **多租户隔离**：每用户独立数据库配置，支持直连和 SSH 隧道，JWT 认证
-
----
+- **Agent 核心流程**：直接使用 OpenAI SDK 实现 Function Calling 与工具调用，串联问题理解、查询构建、执行和结果解读。
+- **查询安全约束**：通过 SQLBuilder 限制生成 SELECT 查询，校验 Schema 中的表名和列名，对标识符进行白名单校验，并通过占位符参数化查询值。
+- **流式交互**：通过 LLM 流式输出、AsyncGenerator 与 SSE 将处理过程推送至前端，支持逐步展示响应。
+- **用户配置隔离**：按用户管理数据库连接配置，支持数据库直连、SSH 隧道与 JWT 认证。
 
 ### SEO 内容平台后端
 
-**技术栈**：Midway.js + TypeORM + MySQL + Redis
+技术栈：Midway.js / TypeORM / MySQL / Redis
 
-**核心功能**：
-- 动态 Sitemap 生成：自动聚合文章、专题等内容生成 XML
-- 结构化数据输出：API 返回 JSON-LD 格式数据供前端渲染
-- URL 规范化中间件：统一处理末尾斜杠、大小写，301 重定向
-- 内链自动插入：内容渲染时根据关键词库自动添加内链
-- Redis 缓存策略：热门内容缓存，提升响应速度
+- 聚合文章、专题等内容生成动态 Sitemap，输出供前端使用的 JSON-LD 结构化数据。
+- 通过中间件处理 URL 大小写、末尾斜杠及 301 重定向，统一访问路径。
+- 根据关键词库插入内容内链，使用 Redis 缓存热门内容。
 
----
+### 部署与运维实践
 
-### 服务器运维与自动化部署（0-1 全流程）
+- 完成服务器初始化、SSH 密钥与用户权限配置，搭建 Node.js、Python、Docker、MySQL、Redis 环境。
+- 配置 DNS、SSL 证书、Nginx 反向代理、HTTPS 跳转和静态资源缓存。
+- 搭建 GitLab CI/CD 流水线，结合 Docker、PM2 完成构建部署与进程管理，支持日志排查及监控告警。
 
-具备从零开始完成项目上线的全流程能力：
+## 教育背景与兴趣
 
-**1. 服务器选购与初始化**
-- 根据业务需求选择云服务商（阿里云/AWS/腾讯云）和服务器配置
-- 系统初始化：安全组配置、SSH 密钥、用户权限、防火墙规则
-- 基础环境搭建：Node.js / Python / Docker / MySQL / Redis
+**合肥大学 · 本科 · 2021 年毕业**
 
-**2. 域名与 HTTPS 配置**
-- 域名购买、备案（国内）、DNS 解析配置
-- SSL 证书申请（Let's Encrypt / 阿里云免费证书）
-- Nginx 反向代理 + HTTPS 强制跳转
+篮球、户外徒步、象棋、FPS 游戏。
 
-**3. CI/CD 自动化流水线**
-```yaml
-# GitLab CI 示例
-stages:
-  - build
-  - deploy
-
-build:
-  stage: build
-  script:
-    - npm install
-    - npm run build
-  artifacts:
-    paths:
-      - dist/
-
-deploy:
-  stage: deploy
-  script:
-    - rsync -avz dist/ user@server:/var/www/app/
-    - ssh user@server "pm2 reload app"
-  only:
-    - master
-```
-
-**4. 应用部署与进程管理**
-- Docker 容器化部署 / PM2 进程守护
-- Nginx 负载均衡、静态资源缓存
-- 日志收集与监控告警
-
-**完整部署能力**：代码提交 → 自动构建 → 自动测试 → 自动部署 → 服务上线
-
----
-
-## 技术理解
-
-**Agent vs 传统 LLM**
-
-| 模式 | 流程 | 特点 |
-|------|------|------|
-| 传统 LLM | 提问 → 回答 | 只能基于训练数据 |
-| Agent | 提问 → 思考 → 调用工具 → 获取结果 → 回答 | 可连接真实数据 |
-
-**SSE vs WebSocket**
-
-| 特性 | SSE | WebSocket |
-|------|-----|-----------|
-| 方向 | 单向（服务端→客户端） | 双向 |
-| 复杂度 | 简单，基于 HTTP | 较复杂，独立协议 |
-| 适用场景 | 流式输出、通知推送 | 聊天、游戏 |
-
----
-
-## 个人爱好
-
-篮球 · 户外徒步· 象棋
-FPS · PUBG · 打瓦
-
----
-
-## 联系方式
-
-- **Email**: wdoublekai@126.com
-- **微信**: wdoublekai
-- **博客**: [www.aiyly.com](https://www.aiyly.com)
+</div>

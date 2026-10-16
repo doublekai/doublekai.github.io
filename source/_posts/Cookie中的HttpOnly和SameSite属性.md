@@ -4,13 +4,13 @@ date: 2021-08-04 14:41:55
 tags:
 ---
 ### HttpOnly
-作用：如果cookie中设置了HttpOnly属性，那么通过js脚本将无法读取到cookie信息，这样能有效的防止XSS攻击，窃取cookie内容，这样就增加了cookie的安全性，即便是这样，也不要将重要信息存入cookie。XSS全称Cross SiteScript，跨站脚本攻击，是Web程序中常见的漏洞，[XSS](https://www.doublekai.com/2021/07/19/%E6%B7%B1%E6%8C%96XSS-%E5%92%8CCSRF/)属于被动式且用于客户端的攻击方式，所以容易被忽略其危害性。其原理是攻击者向有XSS漏洞的网站中输入(传入)恶意的HTML代码，当其它用户浏览该网站时，这段HTML代码会自动执行，从而达到攻击的目的。如，盗取用户Cookie、破坏页面结构、重定向到其它网站等。
+作用：如果cookie中设置了HttpOnly属性，那么通过js脚本将无法读取到cookie信息，这样能有效的防止XSS攻击，窃取cookie内容，这样就增加了cookie的安全性，即便是这样，也不要将重要信息存入cookie。XSS全称Cross SiteScript，跨站脚本攻击，是Web程序中常见的漏洞，[XSS](https://www.aiyly.com/2021/07/19/%E6%B7%B1%E6%8C%96XSS-%E5%92%8CCSRF/)属于被动式且用于客户端的攻击方式，所以容易被忽略其危害性。其原理是攻击者向有XSS漏洞的网站中输入(传入)恶意的HTML代码，当其它用户浏览该网站时，这段HTML代码会自动执行，从而达到攻击的目的。如，盗取用户Cookie、破坏页面结构、重定向到其它网站等。
 
 设置完毕后通过js脚本是读不到该cookie的，但使用如下方式可以读取。
 
 Cookie cookies[]=request.getCookies();  
 ### SameSite
-作用：防止[CSRF](https://www.doublekai.com/2021/07/19/%E6%B7%B1%E6%8C%96XSS-%E5%92%8CCSRF/)攻击
+作用：防止[CSRF](https://www.aiyly.com/2021/07/19/%E6%B7%B1%E6%8C%96XSS-%E5%92%8CCSRF/)攻击
 ###### SameSite属性
 可以设置三个值。
 Strict

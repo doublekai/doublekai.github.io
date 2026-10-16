@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a Hexo-based personal technical blog deployed to GitHub Pages at www.doublekai.com. The blog is written in Chinese and covers web security, backend systems, frontend frameworks, and computer science topics.
+This is a Hexo-based personal technical blog deployed to GitHub Pages at www.aiyly.com. The blog is written in Chinese and covers web security, backend systems, frontend frameworks, and computer science topics.
 
 ## Common Commands
 
