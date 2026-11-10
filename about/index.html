@@ -7,7 +7,7 @@
 .resume .resume-role { color: #24735c; font-size: 17px; font-weight: 700; margin: 6px 0; }
 .resume .resume-meta { color: #47555d; font-size: 14px; margin: 4px 0; }
 .resume h2, .resume h3, .resume h4 { left: auto; max-width: none; }
-.resume .headerlink { display: none; }
+.resume .headerlink, .resume h2::before, .resume h3::before { display: none; }
 .resume h2 { color: #17272c; font-size: 21px; line-height: 1.35; margin: 24px 0 10px; padding-bottom: 5px; border-bottom: 1px solid #dde6e3; }
 .resume h3 { color: #17272c; font-size: 17px; line-height: 1.4; margin: 14px 0 4px; }
 .resume h4 { color: #24735c; font-size: 15px; line-height: 1.45; margin: 12px 0 4px; }
@@ -55,7 +55,7 @@
 <li><strong>多模态 Agent：</strong>开发对话式包装设计 Agent，接入生图、改图、背景处理、Logo、扩图和视频工具。参与从 LangGraph 迁移至自研 ReAct 运行时，用带步数上限的循环处理澄清、工具选择和结果反馈，由业务代码校验权限、资产归属、参数和付费条件。</li>
 <li><strong>上下文与任务接续：</strong>区分产品图、风格图、结构图和编辑目标，按用户、品牌、产品和资产持久化记忆，支持补充素材后接续原任务。</li>
 <li><strong>真实刀板与可编辑 3D：</strong>串联需求描述、盒型搜索、尺寸确认、刀板生成和 3D 预览，将 2D 方案转成可继续编辑的 3D 包装。先生成主展示面，再并行生成其他面，按刀板几何、遮罩和面坐标裁切贴图，减少文字被裁切及已完成内容被覆盖。</li>
-<li><strong>图像分层与编辑：</strong>将生成图拆成文字、艺术字、图形和背景，用真实字体将普通文字重建为画布原生图层。单个已验证任务产出 <strong>50 余个图层，其中 30 余个文字图层可编辑</strong>。优化蒙版、下载和合成，在本地固定模型数据测试中将 RSS 峰值从 625 MiB 降至 357 MiB，降幅约 **43%**。</li>
+<li><strong>图像分层与编辑：</strong>将生成图拆成文字、艺术字、图形和背景，用真实字体将普通文字重建为画布原生图层。单个已验证任务产出 <strong>50 余个图层，其中 30 余个文字图层可编辑</strong>。优化蒙版、下载和合成，在本地固定模型数据测试中将 RSS 峰值从 625 MiB 降至 357 MiB，降幅约 <strong>43%</strong>。</li>
 <li><strong>商品海报：</strong>参与前后端实现，串联模板选择、商品图上传或复用、包装候选生成、海报生成和画布编辑。为 <strong>461 张模板</strong>整理多维标签并实现加权搜索，支持任务进度展示、刷新恢复和失败重试。</li>
 <li><strong>异步任务与商业化：</strong>实现任务状态持久化、事件时间线和增量轮询，支持取消、从失败步骤恢复和复用结果。接入 AI Design 积分包与免水印权益，实现批量扣费、部分失败退款和重试幂等。</li>
 <li><strong>性能与稳定性：</strong>改写积分去重查询。生产只读对比中，原查询约 <strong>2.47 秒</strong>，改写后的核心聚合约 <strong>11～12 毫秒</strong>。修复 RabbitMQ 消费者重复注册造成的通道耗尽。</li>
