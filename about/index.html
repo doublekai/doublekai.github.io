@@ -51,7 +51,7 @@
 
 <h2 id="个人简介"><a href="#个人简介" class="headerlink" title="个人简介"></a>个人简介</h2><p>使用 Node.js、TypeScript 和 Python 开发多模态 Agent 与业务后端，项目经验涵盖包装设计、异步任务、积分账本和支付。</p>
 <h2 id="工作经历"><a href="#工作经历" class="headerlink" title="工作经历"></a>工作经历</h2><h3 id="包小盒-Pacdora-｜-后端开发工程师"><a href="#包小盒-Pacdora-｜-后端开发工程师" class="headerlink" title="包小盒 / Pacdora ｜ 后端开发工程师"></a>包小盒 / Pacdora ｜ 后端开发工程师</h3><p><strong>2022.08 — 至今</strong> · 2024.02 起参与 Pacdora 海外业务</p>
-<h4 id="Pacdora-AI-Design｜AI-包装设计工作台"><a href="#Pacdora-AI-Design｜AI-包装设计工作台" class="headerlink" title="Pacdora AI Design｜AI 包装设计工作台"></a><a href="https://www.pacdora.com/ai-design">Pacdora AI Design｜AI 包装设计工作台</a></h4><ul>
+<h4 id="Pacdora-AI-Design｜AI-包装设计工作台"><a href="#Pacdora-AI-Design｜AI-包装设计工作台" class="headerlink" title="Pacdora AI Design｜AI 包装设计工作台"></a><a href="https://www.pacdora.com/ai-design" target="_blank" rel="noopener noreferrer">Pacdora AI Design｜AI 包装设计工作台</a></h4><ul>
 <li><strong>Packify Agent 运行时</strong> · 参与将 LangGraph 一次性规划迁移至有步数上限的 ReAct 循环。按需加载业务 Skill、调用图像和视频工具，将工具结果回传模型决定下一步，并通过游标增量同步执行进度。</li>
 <li><strong>动作校验与恢复</strong> · 定义结构化动作协议，由后端校验动作类型、工具参数、权限、资产归属和付费条件。对格式错误做有限次纠错重试，单独处理供应商拒绝。</li>
 <li><strong>多轮对话与海报</strong> · 按用户、品牌、产品和资产保存上下文，区分参考素材与编辑目标。支持选取或跳过模板、确认商品、生成海报及对话内改稿，跨轮保留素材与修改目标，可调整比例并生成变体。为 <strong>461 张模板</strong>整理标签并实现加权搜索。</li>
@@ -59,12 +59,12 @@
 <li><strong>图像分层与画布编辑</strong> · 将文字、艺术字、图形和背景拆成独立图层，用真实字体重建可排版的文字。已验证任务产出 <strong>50 余个图层，其中 30 余个文字图层可编辑</strong>。优化蒙版、下载和合成，在本地固定模型数据测试中将 RSS 峰值从 625 MiB 降至 357 MiB。</li>
 <li><strong>异步任务与积分</strong> · 持久化任务状态与生成结果，支持取消、失败步骤恢复和结果复用。接入积分包与免水印权益，处理批量扣费、部分失败退款及重试幂等。改写积分去重查询，修复 RabbitMQ 重复订阅导致的通道耗尽。</li>
 </ul>
-<h4 id="Pacdora-海外站"><a href="#Pacdora-海外站" class="headerlink" title="Pacdora 海外站"></a><a href="https://www.pacdora.com/">Pacdora 海外站</a></h4><ul>
+<h4 id="Pacdora-海外站"><a href="#Pacdora-海外站" class="headerlink" title="Pacdora 海外站"></a><a href="https://www.pacdora.com/" target="_blank" rel="noopener noreferrer">Pacdora 海外站</a></h4><ul>
 <li>接入翻译 API 和人工校对流程，开发动态 Sitemap、JSON-LD 和多语言 hreflang。使用 AWS S3、CloudFront 和 Lambda 管理与分发资源。</li>
 </ul>
-<h4 id="包小盒国内业务-·-2022-08-—-2024-01"><a href="#包小盒国内业务-·-2022-08-—-2024-01" class="headerlink" title="包小盒国内业务 · 2022.08 — 2024.01"></a><a href="https://www.baoxiaohe.com/">包小盒国内业务</a> · 2022.08 — 2024.01</h4><ul>
+<h4 id="包小盒国内业务-·-2022-08-—-2024-01"><a href="#包小盒国内业务-·-2022-08-—-2024-01" class="headerlink" title="包小盒国内业务 · 2022.08 — 2024.01"></a><a href="https://www.baoxiaohe.com/" target="_blank" rel="noopener noreferrer">包小盒国内业务</a> · 2022.08 — 2024.01</h4><ul>
 <li><strong>订单与会员</strong> · 开发订单与账单微服务，处理支付回调和订单状态。接入支付宝连续包月和微信支付，支持会员订阅、付费模板和印刷服务。</li>
-<li><strong><a href="https://yin.baoxiaohe.com/">包小印</a>从 0 到 1</strong> · 2023.02 — 2023.12 担任后端核心开发，按盒型、数量和材质计算报价，开发购物车、合并下单、支付、供应商分单、发货和售后流程。</li>
+<li><strong><a href="https://yin.baoxiaohe.com/" target="_blank" rel="noopener noreferrer">包小印</a>从 0 到 1</strong> · 2023.02 — 2023.12 担任后端核心开发，按盒型、数量和材质计算报价，开发购物车、合并下单、支付、供应商分单、发货和售后流程。</li>
 <li><strong>运营与 SEO</strong> · 开发折扣、限时抢购和赠品功能，参与优化页面 Meta 标签和 URL 规范。</li>
 </ul>
 <h3 id="北京八分量信息科技有限公司-｜-Python-开发工程师"><a href="#北京八分量信息科技有限公司-｜-Python-开发工程师" class="headerlink" title="北京八分量信息科技有限公司 ｜ Python 开发工程师"></a>北京八分量信息科技有限公司 ｜ Python 开发工程师</h3><p><strong>2021.07 — 2022.07</strong></p>
