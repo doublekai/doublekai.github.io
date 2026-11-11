@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 个人简历 · Doublekai的博客</title><meta name="description" content="王凯的个人简历：后端 / AI Agent 开发工程师，开发多模态 Agent、可编辑 3D 包装、图像分层及异步计费系统。"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://blog.aiyly.com/atom.xml" title="Doublekai的博客"><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="Doublekai的博客" type="application/atom+xml">
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 个人简历 · Doublekai的博客</title><meta name="description" content="王凯的个人简历：后端 / AI Agent 开发工程师，项目经历涵盖多模态 Agent、包装设计、异步任务和支付。"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://blog.aiyly.com/atom.xml" title="Doublekai的博客"><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="Doublekai的博客" type="application/atom+xml">
 <link rel="stylesheet" href="/css/profile.css"><link rel="canonical" href="https://blog.aiyly.com/about/"><meta property="og:url" content="https://blog.aiyly.com/about/"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" class="nav-list-link">首页</a></li><li class="nav-list-item"><a href="/tech/" class="nav-list-link">技术</a></li><li class="nav-list-item"><a href="/personal/" class="nav-list-link">生活</a></li><li class="nav-list-item"><a href="/about/" class="nav-list-link active" aria-current="page">简历</a></li><li class="nav-list-item"><a href="https://www.aiyly.com/app" target="_blank" rel="noopener" class="nav-list-link">Aiyly Studio</a></li><li class="nav-list-item"><a href="https://github.com/doublekai" target="_blank" rel="noopener" class="nav-list-link">GitHub</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">个人简历</h1><div class="post-content"><style>
 .resume { color: #233039; font-size: 15px; line-height: 1.72; overflow-wrap: anywhere; }
 .post-block:has(.resume) > .post-title { display: none; }
@@ -49,96 +49,51 @@
 <button class="print-btn no-print" type="button" onclick="window.print()">打印 / 保存 PDF</button>
 </div>
 
-<h2 id="个人简介"><a href="#个人简介" class="headerlink" title="个人简介"></a>个人简介</h2><p>以 Node.js、TypeScript、Python 为主要技术栈，具有多模态 Agent 与复杂业务后端开发经验。参与 ReAct 运行时演进，开发工具调用、上下文与持久化记忆，并落地包装生成、真实刀板与 3D 联动、设计图分层等能力；同时实现异步执行、积分计费和失败恢复，参与性能优化。也有海外支付、会员订阅与隐私计算平台开发经验，独立开发并部署过个人 SaaS。</p>
-<h2 id="工作经历"><a href="#工作经历" class="headerlink" title="工作经历"></a>工作经历</h2><h3 id="包小盒-Pacdora-｜-后端开发工程师"><a href="#包小盒-Pacdora-｜-后端开发工程师" class="headerlink" title="包小盒 / Pacdora ｜ 后端开发工程师"></a>包小盒 / Pacdora ｜ 后端开发工程师</h3><p><strong>2022.08 — 至今</strong></p>
-<p><strong>Pacdora 海外业务 · 2024.02 — 至今</strong></p>
-<p>技术栈：Node.js / TypeScript / Midway.js / MySQL / Redis / ReAct / 多模态大模型 / AWS · <a href="https://www.pacdora.com/">pacdora.com</a></p>
-<h4 id="Pacdora-AI-Design｜AI-包装设计工作台"><a href="#Pacdora-AI-Design｜AI-包装设计工作台" class="headerlink" title="Pacdora AI Design｜AI 包装设计工作台"></a>Pacdora AI Design｜AI 包装设计工作台</h4><p><strong>Packify 多模态 Agent</strong></p>
-<ul>
-<li><strong>Agent 运行时重构</strong> · 参与将 Packify 从 LangGraph 一次性规划迁移到自研的多步 ReAct 循环。按需加载业务 Skill，调用生图、改图、背景处理、Logo、扩图和视频工具。将工具结果回传模型，由模型决定下一步，循环设有步数上限。</li>
-<li><strong>模型输出校验与异常恢复</strong> · 为模型动作定义结构化协议，由后端校验动作类型、工具参数、权限、资产归属及付费条件。对格式错误做有限次纠错重试，并将模型供应商拒绝单独处理。</li>
-<li><strong>上下文与持久化记忆</strong> · 在会话中处理自然语言、产品图、风格图、包装结构及历史设计结果，区分参考素材与编辑目标。按用户、品牌、产品、包装与资产保存信息来源和确认状态，支持补充素材后接续原任务。</li>
-<li><strong>执行进度与任务恢复</strong> · 记录任务事件，通过游标增量同步执行阶段、工具调用和生成结果，支持取消、重复提交去重、失败重试和结果恢复。</li>
-</ul>
-<p><strong>真实刀板与可编辑 3D Mockup</strong></p>
-<ul>
-<li>打通自然语言需求、盒型搜索、尺寸确认、真实刀板准备、设计生成和 3D 预览的完整链路，按刀板各面的几何尺寸与布局约束生成设计稿，支持将选中的 2D 设计稿转换为可继续编辑的 3D 包装样机。接入盒型单选与默认尺寸确认，兼容历史任务及修改尺寸流程。</li>
-<li>将包装设计拆分为主展示面、信息面及其他结构面，采用主面完成后并行生成其余内容的方式，兼顾视觉一致性与生成效率。</li>
-<li>基于真实刀板几何、物理遮罩和面坐标完成裁切、缩放及贴图合成，保护已完成内容面，减少整图重绘造成的文字裁切与内容覆盖。</li>
-</ul>
-<p><strong>图像分层与画布编辑</strong></p>
-<ul>
-<li>将生成图片拆分为文字、艺术字、图形和背景等独立图层并接入编辑器；普通文字重建为使用真实字体的原生文字图层，艺术字及图形独立重建并透明化，支持移动、隐藏及重新排版。</li>
-<li>实现背景重建、局部坐标映射与 SVG 等比适配，修复缩放裁切、参考图缺失笔画及历史图层兼容问题；<strong>在已验证的真实任务中产出 50 余个图层，其中包含 30 余个可编辑文字图层。</strong></li>
-<li>优化局部蒙版、素材下载及合成阶段的内存使用，在本地固定模型数据测试中，将 RSS 峰值从 625 MiB 降至 357 MiB，降幅约 <strong>43%</strong>。</li>
-</ul>
-<p><strong>商品海报与多轮改稿</strong></p>
-<ul>
-<li><strong>对话内设计流程</strong> · 实现选择或跳过模板、确认商品、生成海报和对话内改稿。跨轮保留选中的模板、商品图和修改目标，支持在同一会话调整比例并生成变体。</li>
-<li><strong>模板与画布</strong> · 参与前后端实现，串联商品图上传或复用、包装候选生成、海报生成和画布编辑。为 <strong>461 张海报模板</strong>整理多维标签并实现加权搜索，独立生成任务支持进度展示、刷新恢复和失败重试。</li>
-</ul>
-<p><strong>异步任务、积分计费与性能优化</strong></p>
-<ul>
-<li>实现付费任务状态持久化、供应商结果转存及已有结果复用，支持从失败步骤恢复。接入 AI Design 积分包和免水印权益，完善批量扣费、部分失败退款和重试幂等，按任务汇总积分明细并保留账本。</li>
-<li>定位积分去重查询的执行计划问题，在保留最早扣费记录语义的前提下改写查询；<strong>生产只读对比中，原查询约 2.47 秒，优化方案核心聚合查询约 11～12 毫秒，完整接口收益尚待验证。</strong></li>
-<li>优化会话分页、历史读取与任务轮询，运行中轮询采用任务优先的只读路径；修复 RabbitMQ 消费者被定时任务重复注册的问题，改为应用启动时单次订阅并增加进程内幂等保护，避免消费者持续累积至通道上限。</li>
+<h2 id="个人简介"><a href="#个人简介" class="headerlink" title="个人简介"></a>个人简介</h2><p>使用 Node.js、TypeScript 和 Python 开发多模态 Agent 与业务后端，项目经验涵盖包装设计、异步任务、积分账本和支付。</p>
+<h2 id="工作经历"><a href="#工作经历" class="headerlink" title="工作经历"></a>工作经历</h2><h3 id="包小盒-Pacdora-｜-后端开发工程师"><a href="#包小盒-Pacdora-｜-后端开发工程师" class="headerlink" title="包小盒 / Pacdora ｜ 后端开发工程师"></a>包小盒 / Pacdora ｜ 后端开发工程师</h3><p><strong>2022.08 — 至今</strong> · 2024.02 起参与 Pacdora 海外业务</p>
+<h4 id="Pacdora-AI-Design｜AI-包装设计工作台"><a href="#Pacdora-AI-Design｜AI-包装设计工作台" class="headerlink" title="Pacdora AI Design｜AI 包装设计工作台"></a>Pacdora AI Design｜AI 包装设计工作台</h4><ul>
+<li><strong>Packify Agent 运行时</strong> · 参与将 LangGraph 一次性规划迁移至有步数上限的 ReAct 循环。按需加载业务 Skill、调用图像和视频工具，将工具结果回传模型决定下一步，并通过游标增量同步执行进度。</li>
+<li><strong>动作校验与恢复</strong> · 定义结构化动作协议，由后端校验动作类型、工具参数、权限、资产归属和付费条件。对格式错误做有限次纠错重试，单独处理供应商拒绝。</li>
+<li><strong>多轮对话与海报</strong> · 按用户、品牌、产品和资产保存上下文，区分参考素材与编辑目标。支持选取或跳过模板、确认商品、生成海报及对话内改稿，跨轮保留素材与修改目标，可调整比例并生成变体。为 <strong>461 张模板</strong>整理标签并实现加权搜索。</li>
+<li><strong>真实刀板与 3D 样机</strong> · 串联盒型搜索、尺寸确认、刀板生成和 3D 预览。先生成主展示面，再并行生成其他面，按刀板几何与遮罩裁切贴图，将选中的 2D 稿转换为 3D 包装样机。</li>
+<li><strong>图像分层与画布编辑</strong> · 将文字、艺术字、图形和背景拆成独立图层，用真实字体重建可排版的文字。已验证任务产出 <strong>50 余个图层，其中 30 余个文字图层可编辑</strong>。优化蒙版、下载和合成，在本地固定模型数据测试中将 RSS 峰值从 625 MiB 降至 357 MiB。</li>
+<li><strong>异步任务与积分</strong> · 持久化任务状态与生成结果，支持取消、失败步骤恢复和结果复用。接入积分包与免水印权益，处理批量扣费、部分失败退款及重试幂等。改写积分去重查询，修复 RabbitMQ 重复订阅导致的通道耗尽。</li>
 </ul>
 <h4 id="Pacdora-海外站"><a href="#Pacdora-海外站" class="headerlink" title="Pacdora 海外站"></a>Pacdora 海外站</h4><ul>
-<li><strong>国际化与云服务</strong> · 实现多语言架构及翻译 API 接入，衔接自动翻译与人工校对；使用 AWS S3、CloudFront、Lambda 支持海外资源存储与分发。</li>
-<li><strong>SEO 与线上维护</strong> · 实现动态 Sitemap、结构化数据及多语言 hreflang 支持，定位并修复生产环境问题。</li>
+<li>接入翻译 API 和人工校对流程，开发动态 Sitemap、JSON-LD 和多语言 hreflang。使用 AWS S3、CloudFront 和 Lambda 管理与分发资源。</li>
 </ul>
-<h4 id="包小盒国内业务-·-2022-08-—-2024-01"><a href="#包小盒国内业务-·-2022-08-—-2024-01" class="headerlink" title="包小盒国内业务 · 2022.08 — 2024.01"></a>包小盒国内业务 · 2022.08 — 2024.01</h4><p>技术栈：Node.js / Midway.js / MySQL / Redis · <a href="https://www.baoxiaohe.com/">baoxiaohe.com</a></p>
-<ul>
-<li><strong>订单与账单</strong> · 设计实现订单、账单微服务，覆盖业务下单、第三方支付回调与订单状态流转。</li>
-<li><strong>支付与会员</strong> · 接入支付宝连续包月和微信支付 SDK，实现会员订阅、付费功能及高级模板、印刷定制等付费服务。</li>
-<li><strong>运营与搜索优化</strong> · 支持折扣、限时抢购、赠品活动；参与网站结构、Meta 标签与 URL 规范优化。</li>
-<li><strong>包小印从 0 到 1</strong> · 2023.02 — 2023.12 担任后端核心开发，团队由 2 名后端、2 名前端和 1 名测试组成。实现按盒型、数量、材质配置的报价引擎，以及购物车、合并下单、支付、供应商分单、发货和售后流程。</li>
+<h4 id="包小盒国内业务-·-2022-08-—-2024-01"><a href="#包小盒国内业务-·-2022-08-—-2024-01" class="headerlink" title="包小盒国内业务 · 2022.08 — 2024.01"></a>包小盒国内业务 · 2022.08 — 2024.01</h4><ul>
+<li><strong>订单与会员</strong> · 开发订单与账单微服务，处理支付回调和订单状态。接入支付宝连续包月和微信支付，支持会员订阅、付费模板和印刷服务。</li>
+<li><strong>包小印从 0 到 1</strong> · 2023.02 — 2023.12 担任后端核心开发，按盒型、数量和材质计算报价，开发购物车、合并下单、支付、供应商分单、发货和售后流程。</li>
+<li><strong>运营与 SEO</strong> · 开发折扣、限时抢购和赠品功能，参与优化页面 Meta 标签和 URL 规范。</li>
 </ul>
 <h3 id="北京八分量信息科技有限公司-｜-Python-开发工程师"><a href="#北京八分量信息科技有限公司-｜-Python-开发工程师" class="headerlink" title="北京八分量信息科技有限公司 ｜ Python 开发工程师"></a>北京八分量信息科技有限公司 ｜ Python 开发工程师</h3><p><strong>2021.07 — 2022.07</strong></p>
-<p>技术栈：Python / FastAPI / PostgreSQL / Django</p>
 <ul>
-<li><strong>隐私计算平台</strong> · 基于 FastAPI、PostgreSQL 开发平台后端，参与产品评审、概要设计与接口定义。</li>
-<li><strong>存储组件</strong> · 实现数据存储模块，支持 HDFS、MySQL、PostgreSQL、SQLite 等存储介质。</li>
-<li><strong>节点服务</strong> · 开发数据发布、联盟管理及线性回归、逻辑回归等机器学习任务相关功能。</li>
-<li><strong>跨链大数据平台</strong> · 使用 Django、MySQL 开发企业级数据应用。</li>
+<li>使用 FastAPI 和 PostgreSQL 开发隐私计算平台，实现 HDFS、MySQL、PostgreSQL 和 SQLite 的数据存储接口，开发数据发布、联盟管理与回归任务相关功能。</li>
+<li>使用 Django 和 MySQL 开发跨链大数据平台。</li>
 </ul>
-<h2 id="项目与实践"><a href="#项目与实践" class="headerlink" title="项目与实践"></a>项目与实践</h2><h3 id="Aiyly-Studio-｜-AI-服装设计-SaaS"><a href="#Aiyly-Studio-｜-AI-服装设计-SaaS" class="headerlink" title="Aiyly Studio ｜ AI 服装设计 SaaS"></a>Aiyly Studio ｜ AI 服装设计 SaaS</h3><p><strong>独立项目 · 从 0 到 1</strong> ｜ <a href="https://www.aiyly.com/">项目官网</a></p>
-<p>技术栈：Next.js / React / TypeScript / Midway.js / MySQL / Docker / GitLab CI/CD</p>
+<h2 id="项目与实践"><a href="#项目与实践" class="headerlink" title="项目与实践"></a>项目与实践</h2><h3 id="Aiyly-Studio-｜-服装设计-SaaS"><a href="#Aiyly-Studio-｜-服装设计-SaaS" class="headerlink" title="Aiyly Studio ｜ 服装设计 SaaS"></a>Aiyly Studio ｜ 服装设计 SaaS</h3><p><strong>独立项目</strong> · Next.js / React / Midway.js / MySQL · <a href="https://www.aiyly.com/">项目官网</a></p>
 <ul>
-<li><strong>设计工作台</strong> · 搭建服装设计工作台，支持服装模板、面料与图案编辑、同屏 2D/3D 预览、项目保存和模型导出。搭建 Web、API 与任务 Worker 的自动化部署。</li>
-<li><strong>海外支付与积分账本</strong> · 接入 Waffo 一次性支付，实现报价、收银台会话、Webhook 验签与服务端查单，核对订单归属、商品及实付金额。以订单和事件的唯一键防止重复通知导致重复入账。完成首笔生产实付验收，核对付款、积分入账与免水印权益。</li>
-<li><strong>退款与权益</strong> · 实现退款事件核验、积分冲销与权益重算。将订单状态、账本和权益放在同一事务内更新，部分退款或无法自动核对的记录转人工复核。</li>
-<li><strong>会员订阅方案</strong> · 设计会员导出权益与每月赠送积分规则，规划订阅状态、周期发票和赠送入账的幂等校验。</li>
+<li><strong>设计工作台</strong> · 开发服装模板、面料和图案编辑及 2D/3D 同屏预览，搭建 Web、API 与 Worker 的自动化部署。</li>
+<li><strong>Waffo 支付与积分账本</strong> · 接入一次性积分包支付，实现收银台、Webhook 验签、服务端查单与幂等入账。首笔生产实付验证了积分入账和免水印权益开通。</li>
+<li><strong>退款与权益</strong> · 核验退款事件，按退款情况更新订单、积分和权益，对部分退款或需核对的记录转人工复核。</li>
 </ul>
-<h3 id="Aiyly-·-AI-Agent-数据分析平台"><a href="#Aiyly-·-AI-Agent-数据分析平台" class="headerlink" title="Aiyly · AI Agent 数据分析平台"></a>Aiyly · AI Agent 数据分析平台</h3><p><strong>个人项目 · 从 0 到 1</strong> ｜ <a href="https://ai.aiyly.com/">在线体验</a></p>
-<p>技术栈：Midway.js / TypeORM / OpenAI SDK / MySQL</p>
-<p>面向自然语言数据库分析场景，用户配置 MySQL 连接、数据 Schema 和业务指标后，通过提问完成 SQL 查询与结果解读。</p>
+<h3 id="Aiyly-·-AI-Agent-数据分析平台"><a href="#Aiyly-·-AI-Agent-数据分析平台" class="headerlink" title="Aiyly · AI Agent 数据分析平台"></a>Aiyly · AI Agent 数据分析平台</h3><p><strong>个人项目</strong> · <a href="https://ai.aiyly.com/">项目链接</a></p>
 <ul>
-<li><strong>Agent 核心流程</strong> · 直接使用 OpenAI SDK 实现 Function Calling 与工具调用，串联问题理解、查询构建、执行和结果解读。</li>
-<li><strong>查询安全约束</strong> · 通过 SQLBuilder 限制生成 SELECT 查询，校验 Schema 中的表名和列名，对标识符进行白名单校验，并通过占位符参数化查询值。</li>
-<li><strong>流式交互</strong> · 通过 LLM 流式输出、AsyncGenerator 与 SSE 将处理过程推送至前端，支持逐步展示响应。</li>
-<li><strong>用户配置隔离</strong> · 按用户管理数据库连接配置，支持数据库直连、SSH 隧道与 JWT 认证。</li>
+<li>使用 OpenAI SDK 的 Function Calling 将自然语言问题转为 MySQL 只读查询。校验表列白名单并绑定参数，使用 SSE 返回执行过程与结果。</li>
+<li>按用户隔离数据库连接配置，支持直连、SSH 隧道和 JWT 认证。</li>
 </ul>
-<h3 id="SEO-内容平台后端"><a href="#SEO-内容平台后端" class="headerlink" title="SEO 内容平台后端"></a>SEO 内容平台后端</h3><p>技术栈：Midway.js / TypeORM / MySQL / Redis</p>
-<ul>
-<li>聚合文章、专题等内容生成动态 Sitemap，输出供前端使用的 JSON-LD 结构化数据。</li>
-<li>通过中间件处理 URL 大小写、末尾斜杠及 301 重定向，统一访问路径。</li>
-<li>根据关键词库插入内容内链，使用 Redis 缓存热门内容。</li>
+<h3 id="SEO-内容平台后端"><a href="#SEO-内容平台后端" class="headerlink" title="SEO 内容平台后端"></a>SEO 内容平台后端</h3><ul>
+<li>为文章和专题生成动态 Sitemap 与 JSON-LD，统一 URL 及 301 跳转，按关键词插入内链，用 Redis 缓存热门内容。</li>
 </ul>
 <h3 id="部署与运维实践"><a href="#部署与运维实践" class="headerlink" title="部署与运维实践"></a>部署与运维实践</h3><ul>
-<li>完成服务器初始化、SSH 密钥与用户权限配置，搭建 Node.js、Python、Docker、MySQL、Redis 环境。</li>
-<li>配置 DNS、SSL 证书、Nginx 反向代理、HTTPS 跳转和静态资源缓存。</li>
-<li>搭建 GitLab CI/CD 流水线，结合 Docker、PM2 完成构建部署与进程管理，支持日志排查及监控告警。</li>
+<li>配置 Linux 权限、DNS、Nginx 和 HTTPS，使用 GitLab CI/CD、Docker 和 PM2 部署服务并排查日志。</li>
 </ul>
 <h2 id="专业技能"><a href="#专业技能" class="headerlink" title="专业技能"></a>专业技能</h2><ul>
-<li><strong>Agent 开发</strong> · 多模态交互、ReAct 决策循环、工具注册与参数校验、上下文与持久化记忆、执行边界和任务事件记录。</li>
-<li><strong>后端开发</strong> · Node.js、TypeScript、Midway.js、Python、FastAPI、Django、TypeORM；具备微服务与业务接口开发经验。</li>
-<li><strong>数据与缓存</strong> · MySQL、PostgreSQL、Redis、SQLite、RabbitMQ；具备订单、账单、内容及数据分析场景的开发经验。</li>
-<li><strong>任务与交互</strong> · OpenAI SDK、Function Calling、异步任务状态持久化、重试幂等与结果复用、增量轮询及 SSE 流式响应。</li>
-<li><strong>部署与工程化</strong> · Linux、Docker、Nginx、Shell、Git、GitLab CI/CD；使用 AWS 与阿里云完成应用部署、域名及 HTTPS 配置。</li>
-<li><strong>业务能力</strong> · Waffo、微信支付、支付宝、会员订阅、订单与账本、多语言与翻译流程、SEO 后端支持、Web 安全；了解 Vue、React。</li>
+<li><strong>开发</strong> · Node.js、TypeScript、Midway.js、Python、FastAPI、Django、TypeORM</li>
+<li><strong>数据与基础设施</strong> · MySQL、PostgreSQL、Redis、RabbitMQ、Docker、Nginx、GitLab CI/CD</li>
 </ul>
 <h2 id="教育背景与兴趣"><a href="#教育背景与兴趣" class="headerlink" title="教育背景与兴趣"></a>教育背景与兴趣</h2><p><strong>合肥大学 · 本科 · 2021 年毕业</strong></p>
-<p>热爱户外徒步，走过雨崩、武功山及杭州周边多条山野路线；也喜欢篮球、象棋和 FPS 游戏。</p>
+<p>户外徒步（雨崩、武功山及杭州周边）、篮球、象棋、FPS 游戏。</p>
 </div>
 </div></article></div></main><footer><div class="paginator"></div><div class="copyright"><p>© 2015 - 2026 DOUBLEKAI</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script></body></html>
