@@ -13,7 +13,7 @@ const Hexo = require('hexo');
     const source = fs.readFileSync(path.resolve(__dirname, 'source/about/index.md'), 'utf8');
     const body = source.replace(/^\uFEFF?---\r?\n[\s\S]*?\r?\n---\r?\n/, '');
     const rendered = await hexo.render.render({ text: body, engine: 'md' });
-    if (!rendered.includes('<h2') || !rendered.includes('个人简介')) throw new Error('Markdown did not render');
+    if (!rendered.includes('<h2') || !rendered.includes('id="experience"') || !rendered.includes('id="education"')) throw new Error('Markdown did not render');
     const template = fs.readFileSync(target, 'utf8');
     const start = '<div class="post-content">';
     const end = '</div></article>';
@@ -23,7 +23,7 @@ const Hexo = require('hexo');
     let html = template.slice(0, begin + start.length) + rendered + template.slice(finish);
     html = html.replace(/www\.doublekai\.com/g, 'www.aiyly.com');
     html = html.replace(/<div class="post-info">[^<]*<\/div>/, '');
-    html = html.replace(/<meta name="description" content="[^"]*">/, '<meta name="description" content="王凯的个人简历：后端 / AI Agent 开发工程师，项目经历涵盖多模态 Agent、包装设计、异步任务和支付。">');
+    html = html.replace(/<meta name="description" content="[^"]*">/, '<meta name="description" content="王凯的个人简历：求职方向为 AI 应用架构师 / 软件架构师，项目经历涵盖多模态 Agent、支付订阅、静态发布和异步渲染。">');
     fs.writeFileSync(target, html.replace(/\r\n/g, '\n'));
     console.log('Resume rendered:', target);
   } finally { await hexo.exit(); }
