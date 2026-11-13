@@ -88,11 +88,8 @@ title: 个人简历
     <li><strong>发布性能</strong> · 通过批量查询、EJS 预编译、4 个 Worker 线程和批内并发写入，灰度环境约 <strong>9,570 页、7 种语言</strong>的发布实测从约 <strong>400 秒降至 157 秒</strong>。每种语言的模板查询从约 <strong>1,300 次降至 13 次</strong>。</li>
     <li><strong>多语言内容发布</strong> · 开发翻译任务、内容同步和失败重试，覆盖专题、盒型、分类和 FAQ。生成多语言 Sitemap、JSON-LD 和 hreflang，管理 S3 / OSS 资源分发。</li>
   </ul>
-</section>
 
-<section aria-labelledby="experience-more" class="print-start">
-  <h2 id="experience-more">工作经历（续）</h2>
-  <h3>包装视频渲染与文件导出｜2024–2026</h3>
+  <h3 class="print-start">包装视频渲染与文件导出｜2024–2026</h3>
   <ul>
     <li>开发独立渲染服务，串联 RabbitMQ、Puppeteer、Bray、FFmpeg 和 S3 / OSS，支持中外站队列、进度回调与导出邮件。修复浏览器页面关闭后轮询定时器残留引发的进程崩溃和消息反复投递。</li>
     <li>开发 Bray 场景包直接渲染、V-Ray 调度与任务校验，维护刀模、DXF、印刷 ZIP 和 Illustrator 导出，处理转换重试与自动部署。</li>
