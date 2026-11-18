@@ -6,7 +6,7 @@
   <link href="https://blog.aiyly.com/atom.xml" rel="self"/>
   
   <link href="https://blog.aiyly.com/"/>
-  <updated>2026-10-16T07:58:12.832Z</updated>
+  <updated>2026-11-18T04:00:00.000Z</updated>
   <id>https://blog.aiyly.com/</id>
   
   <author>
@@ -16,6 +16,99 @@
   
   <generator uri="https://hexo.io/">Hexo</generator>
   
+  <entry>
+    <title>用 LangGraph 搭建可暂停和恢复的设计工作流</title>
+    <link href="https://blog.aiyly.com/2026/11/18/langgraph-design-workflow/"/>
+    <id>https://blog.aiyly.com/2026/11/18/langgraph-design-workflow/</id>
+    <published>2026-11-18T04:00:00.000Z</published>
+    <updated>2026-11-18T04:00:00.000Z</updated>
+    <content type="html"><![CDATA[<p>用户在 Aiyly Studio 里说「给茉莉茶做个包装」，选择先复核方案，再补一句「做成茶罐」。页面显示生成方案，用户关掉网页，十分钟后回来点批准。后台需要继续执行他刚才看到的方案，还要处理供应商已经收到生图请求、网络却在返回任务 ID 前断开的情况。</p>
+<p>这两个问题分别落在工作流和外部任务上。用 LangGraph，我可以把执行到哪一步保存下来。每一次可能产生费用的外部调用，还需要业务层记录它已经做到哪一步。</p>
+<p><span id="more"></span></p>
+<h2 id="一次聊天可以有多轮执行">一次聊天可以有多轮执行</h2>
+<p>聊天的会话 ID 管用户看到的消息、近期需求和素材上下文。每条提交会创建独立的执行记录，执行 ID 用作 LangGraph 的 <code>thread_id</code>。因此，「缺盒型，先追问」和「已生成方案，等用户批准」会进入不同的状态。</p>
+<table>
+<thead>
+<tr>
+<th>用户看到的界面</th>
+<th>后台如何处理</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>助手问「想做成纸盒还是茶罐」</td>
+<td>本轮进入 <code>needs_input</code> 并结束。下一条消息创建新一轮，从同一会话取回需要的上下文。</td>
+</tr>
+<tr>
+<td>助手显示方案和报价，等用户决定</td>
+<td>当前轮暂停。批准或取消沿用原来的 <code>thread_id</code>，继续处理当时的方案。</td>
+</tr>
+</tbody></table>
+<p>图的 State 保存当前执行需要的字段，比如原始请求、识别后的需求、方案和执行结果。节点读 State 并返回本次写入的字段。条件边读取这些字段，选择接下来要运行的节点。在 Aiyly Studio 里，模型负责判断这句话是否在续接刚才的设计，并返回结构化需求。程序根据路由字段、用户选择和业务约束，决定追问、回复或进入生成。</p>
+<h2 id="用一段-python-跑通暂停和恢复">用一段 Python 跑通暂停和恢复</h2>
+<p>下面的独立示例用一个条件模拟意图分流，用列表记录一次模拟提交。安装 <code>langgraph==1.2.20</code> 后，可以把这段代码存成 Python 文件直接运行。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> typing <span class="keyword">import</span> <span class="type">Literal</span>, NotRequired, TypedDict</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> langgraph.checkpoint.memory <span class="keyword">import</span> InMemorySaver</span><br><span class="line"><span class="keyword">from</span> langgraph.graph <span class="keyword">import</span> END, START, StateGraph</span><br><span class="line"><span class="keyword">from</span> langgraph.types <span class="keyword">import</span> Command, interrupt</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DesignRun</span>(<span class="params">TypedDict</span>):</span></span><br><span class="line">    product: <span class="built_in">str</span></span><br><span class="line">    container: NotRequired[<span class="built_in">str</span>]</span><br><span class="line">    preview: NotRequired[<span class="built_in">str</span>]</span><br><span class="line">    approved: NotRequired[<span class="built_in">bool</span>]</span><br><span class="line">    stage: NotRequired[<span class="built_in">str</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">submissions: <span class="built_in">list</span>[<span class="built_in">str</span>] = []</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">draft_preview</span>(<span class="params">state: DesignRun</span>):</span></span><br><span class="line">    <span class="keyword">return</span> {<span class="string">&quot;preview&quot;</span>: <span class="string">f&quot;<span class="subst">{state[<span class="string">&#x27;product&#x27;</span>]}</span>的<span class="subst">{state[<span class="string">&#x27;container&#x27;</span>]}</span>包装方案&quot;</span>}</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">ask_for_container</span>(<span class="params">state: DesignRun</span>):</span></span><br><span class="line">    <span class="keyword">return</span> {<span class="string">&quot;stage&quot;</span>: <span class="string">&quot;needs_input&quot;</span>}</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">review_preview</span>(<span class="params">state: DesignRun</span>):</span></span><br><span class="line">    decision = interrupt({<span class="string">&quot;preview&quot;</span>: state[<span class="string">&quot;preview&quot;</span>]})</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> <span class="built_in">isinstance</span>(decision, <span class="built_in">dict</span>) <span class="keyword">or</span> <span class="built_in">type</span>(decision.get(<span class="string">&quot;approved&quot;</span>)) <span class="keyword">is</span> <span class="keyword">not</span> <span class="built_in">bool</span>:</span><br><span class="line">        <span class="keyword">raise</span> ValueError(<span class="string">&quot;Expected a boolean approval&quot;</span>)</span><br><span class="line">    <span class="keyword">return</span> {<span class="string">&quot;approved&quot;</span>: decision[<span class="string">&quot;approved&quot;</span>]}</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">queue_render</span>(<span class="params">state: DesignRun</span>):</span></span><br><span class="line">    submissions.append(state[<span class="string">&quot;preview&quot;</span>])</span><br><span class="line">    <span class="keyword">return</span> {<span class="string">&quot;stage&quot;</span>: <span class="string">&quot;queued&quot;</span>}</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cancel_review</span>(<span class="params">state: DesignRun</span>):</span></span><br><span class="line">    <span class="keyword">return</span> {<span class="string">&quot;stage&quot;</span>: <span class="string">&quot;canceled&quot;</span>}</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">route_request</span>(<span class="params">state: DesignRun</span>) -&gt; <span class="type">Literal</span>[&quot;ask&quot;, &quot;draft&quot;]:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;draft&quot;</span> <span class="keyword">if</span> state.get(<span class="string">&quot;container&quot;</span>) <span class="keyword">else</span> <span class="string">&quot;ask&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">route_decision</span>(<span class="params">state: DesignRun</span>) -&gt; <span class="type">Literal</span>[&quot;render&quot;, &quot;cancel&quot;]:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;render&quot;</span> <span class="keyword">if</span> state[<span class="string">&quot;approved&quot;</span>] <span class="keyword">else</span> <span class="string">&quot;cancel&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">builder = StateGraph(DesignRun)</span><br><span class="line">builder.add_node(<span class="string">&quot;ask&quot;</span>, ask_for_container)</span><br><span class="line">builder.add_node(<span class="string">&quot;draft&quot;</span>, draft_preview)</span><br><span class="line">builder.add_node(<span class="string">&quot;review&quot;</span>, review_preview)</span><br><span class="line">builder.add_node(<span class="string">&quot;render&quot;</span>, queue_render)</span><br><span class="line">builder.add_node(<span class="string">&quot;cancel&quot;</span>, cancel_review)</span><br><span class="line">builder.add_conditional_edges(START, route_request)</span><br><span class="line">builder.add_edge(<span class="string">&quot;draft&quot;</span>, <span class="string">&quot;review&quot;</span>)</span><br><span class="line">builder.add_conditional_edges(<span class="string">&quot;review&quot;</span>, route_decision)</span><br><span class="line"><span class="keyword">for</span> node <span class="keyword">in</span> (<span class="string">&quot;ask&quot;</span>, <span class="string">&quot;render&quot;</span>, <span class="string">&quot;cancel&quot;</span>):</span><br><span class="line">    builder.add_edge(node, END)</span><br><span class="line">graph = builder.<span class="built_in">compile</span>(checkpointer=InMemorySaver())</span><br><span class="line"></span><br><span class="line">cfg = {<span class="string">&quot;configurable&quot;</span>: {<span class="string">&quot;thread_id&quot;</span>: <span class="string">&quot;tea-review-1&quot;</span>}}</span><br><span class="line">graph.invoke({<span class="string">&quot;product&quot;</span>: <span class="string">&quot;茉莉茶&quot;</span>, <span class="string">&quot;container&quot;</span>: <span class="string">&quot;茶罐&quot;</span>}, cfg)</span><br><span class="line"><span class="keyword">assert</span> graph.get_state(cfg).<span class="built_in">next</span> == (<span class="string">&quot;review&quot;</span>,)</span><br><span class="line"><span class="keyword">assert</span> submissions == []</span><br><span class="line"></span><br><span class="line">result = graph.invoke(Command(resume={<span class="string">&quot;approved&quot;</span>: <span class="literal">True</span>}), cfg)</span><br><span class="line"><span class="keyword">assert</span> result[<span class="string">&quot;stage&quot;</span>] == <span class="string">&quot;queued&quot;</span></span><br><span class="line"><span class="keyword">assert</span> submissions == [<span class="string">&quot;茉莉茶的茶罐包装方案&quot;</span>]</span><br></pre></td></tr></table></figure><p>首次执行时，有盒型的请求走 <code>draft → review</code>。<code>interrupt()</code> 把图停在复核节点。此时可以用 <code>get_state()</code> 查看下一节点，模拟提交列表依旧为空。第二次用相同配置传入 <code>Command(resume=...)</code>，LangGraph 从 <code>review</code> 的函数开头重新执行。走到 <code>interrupt()</code> 时，它返回刚传入的批准值，条件边据此进入 <code>render</code>。拒绝则进入 <code>cancel</code>。<a href="https://docs.langchain.com/oss/python/langgraph/interrupts#resuming-interrupts">LangGraph Interrupts 文档</a></p>
+<p>示例用 <code>InMemorySaver</code> 演示调用顺序。Aiyly Studio 使用 PostgreSQL 保存检查点。用户点批准后，接口先核对任务归属和待确认状态，将审批值写入任务记录。后台 Worker 再读这个值，用原来的 <code>thread_id</code> 恢复图。它可以在读取检查点后继续已有任务，网页也可以按事件记录读回进度。<a href="https://docs.langchain.com/oss/python/langgraph/persistence">LangGraph Persistence 文档</a></p>
+<p>恢复会重进节点，所以我把审批提问和外部生图放在不同节点。复核时先生成方案与报价，批准后才预留积分和提交生成。恢复复核节点时，程序只需要重新构造确认问题、读取批准结果并选路。</p>
+<h2 id="提交成功与收到回执之间的空窗">提交成功与收到回执之间的空窗</h2>
+<p>假设一轮要四个方向。应用把每个方向作为独立任务，以「执行 ID + 方向序号」作为唯一键。发请求前先认领这个方向，收到回执再保存供应商任务 ID 或同步返回的输出。如果进程在两步之间退出，下一次执行发现认领记录，却找不到任务 ID。此时请求可能已经产生费用，应用把提交记为未知，留到后续核对。</p>
+<table>
+<thead>
+<tr>
+<th>恢复时读到的记录</th>
+<th>下一步</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>已有可查询的供应商任务 ID</td>
+<td>继续查原任务。有已保存的同步输出时，直接进入交付。</td>
+</tr>
+<tr>
+<td>已认领，提交结果未知</td>
+<td>保留未知状态。能查回执就核对回执。有供应商幂等键支持时，用同一个键重试。</td>
+</tr>
+<tr>
+<td>成图已经入库，结算回包丢失</td>
+<td>用原交付 ID 重试结算。账本识别已完成的同一笔交付，重复确认增加的扣费为零。</td>
+</tr>
+</tbody></table>
+<p>如果四个方向只交付三张，三张各自结算，剩下的预留释放。这里有三个不同的记录要查。<strong>检查点告诉我图停在哪个节点，任务记录告诉我外部调用做到了哪一步，账本告诉我交付已经结算了几次。</strong> 当供应商缺少幂等键与查询能力时，本地只能阻止盲目重发，上游是否执行仍可能未知。</p>
+<h2 id="怎样验证这条链路">怎样验证这条链路</h2>
+<p>我会让测试替身记录每次外部调用的顺序。一条测试可以依次断言批准前提交零次、批准后提交一次、两次查询使用相同的任务 ID、最终交付一次。再分别模拟供应商明确拒绝，以及供应商已接收但客户端收不到回执，检查两种结果如何入库。</p>
+<p>上线前还要查两个边界。审批接口重复收到同一个操作时，只有待审批状态能接收新的决定。交付入库后如果结算回包丢失，重新推进时应找回同一份资产与账本记录。已有暂停任务时，改动节点名也要考虑旧检查点仍然引用原来的节点，发布时需要保留兼容入口或迁移任务。</p>
+<h2 id="react-和-agent-框架是什么关系">ReAct 和 Agent 框架是什么关系</h2>
+<p>ReAct 描述的是模型如何决定下一步。模型先根据已有信息选择一个动作，应用执行工具，把观察结果交回模型，模型再决定要不要继续。在阅读助手里，第一次搜索只找到一篇文章，模型可以根据结果换关键词再找。这个循环可以用普通代码实现，也可以放进 LangGraph 的子图。 <a href="https://arxiv.org/abs/2210.03629">ReAct 论文</a> · <a href="/2026/10/16/agent-react-reading-assistant/">个人阅读助手示例</a></p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>它提供什么</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>LangGraph</td>
+<td>用节点、边、State 和检查点搭流程。可以写固定审批，也可以写模型根据工具结果决定下一步的循环。 <a href="https://docs.langchain.com/oss/python/langgraph/workflows-agents">工作流和 Agent</a></td>
+</tr>
+<tr>
+<td>LangChain</td>
+<td><code>create_agent</code> 提供更高层的 Agent 入口，将模型、工具和中间件组装成工具调用循环，运行在 LangGraph 上。 <a href="https://docs.langchain.com/oss/python/langchain/agents">LangChain Agents</a></td>
+</tr>
+<tr>
+<td>OpenAI Agents SDK</td>
+<td>用 <code>Agent</code> 和 <code>Runner</code> 管理模型与工具的循环，也支持会话、工具审批和 Agent 之间的交接。 <a href="https://openai.github.io/openai-agents-python/agents/">Agents SDK</a></td>
+</tr>
+<tr>
+<td>CrewAI</td>
+<td>用 Crew 组织不同角色的 Agent 和任务，用 Flow 定义业务步骤和状态。 <a href="https://docs.crewai.com/en/concepts/crews">CrewAI Crews</a> · <a href="https://docs.crewai.com/en/concepts/flows">CrewAI Flows</a></td>
+</tr>
+</tbody></table>
+<p>如果给包装流程增加「先查商品资料，再根据缺失字段继续查」的能力，可以把这段只读探索做成一个循环。生成、审批和结算仍能沿用现有节点。同一个应用可以同时用到固定工作流和模型驱动的循环。</p>
+]]></content>
+    <summary type="text">以 Aiyly Studio 的包装设计为例，拆解 LangGraph 的 State、条件边、人工审批恢复，以及外部生图怎样避免重复提交。</summary>
+    <category term="AI"/>
+    <category term="Agent"/>
+    <category term="后端开发"/>
+  </entry>
+
   <entry>
     <title>从工具调用到 Agent：用个人阅读助手理解 ReAct</title>
     <link href="https://blog.aiyly.com/2026/10/16/agent-react-reading-assistant/"/>

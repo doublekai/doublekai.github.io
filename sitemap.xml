@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.aiyly.com/2026/11/18/langgraph-design-workflow/</loc>
+    <lastmod>2026-11-18</lastmod>
+  </url>
+
+  <url>
     <loc>https://blog.aiyly.com/2026/10/16/agent-react-reading-assistant/</loc>
     
     <lastmod>2026-10-16</lastmod>
