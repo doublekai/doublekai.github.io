@@ -1,0 +1,62 @@
+{
+  "bucket": "aiyly-box-library",
+  "prefix": "blog-media/baoshi-shan-20261122-v1",
+  "files": [
+    {
+      "name": "route.jpg",
+      "key": "blog-media/baoshi-shan-20261122-v1/route.jpg",
+      "bytes": 333643,
+      "sha256": "a68e00a6ce2be02a7eebdd3d67b49dda05b800449dc807b71f72bf3336acc7cd",
+      "url": "https://blog.aiyly.com/media/baoshi-shan-20261122-v1/route.jpg"
+    },
+    {
+      "name": "west-lake.jpg",
+      "key": "blog-media/baoshi-shan-20261122-v1/west-lake.jpg",
+      "bytes": 6919183,
+      "sha256": "273e4afb8152f6e9c43ec18c78a4fa3a21d69d25bea5521565f2c0a9e9afa71d",
+      "url": "https://blog.aiyly.com/media/baoshi-shan-20261122-v1/west-lake.jpg"
+    },
+    {
+      "name": "autumn-road.jpg",
+      "key": "blog-media/baoshi-shan-20261122-v1/autumn-road.jpg",
+      "bytes": 413587,
+      "sha256": "5f574751a1bb954d4fe253fc13ccd18b39e8214de8d3d6aa23ccb3ce24d818ba",
+      "url": "https://blog.aiyly.com/media/baoshi-shan-20261122-v1/autumn-road.jpg"
+    },
+    {
+      "name": "ginkgo.jpg",
+      "key": "blog-media/baoshi-shan-20261122-v1/ginkgo.jpg",
+      "bytes": 549117,
+      "sha256": "041e0cabdb0ae3b476f5460e68c49c0926dc0c86b8c199b57e3b2341fbc9c7e4",
+      "url": "https://blog.aiyly.com/media/baoshi-shan-20261122-v1/ginkgo.jpg"
+    },
+    {
+      "name": "fruit-tree.jpg",
+      "key": "blog-media/baoshi-shan-20261122-v1/fruit-tree.jpg",
+      "bytes": 539764,
+      "sha256": "55ccf1a7e1e9a552886991592a9af76369837f9bd63a8e27a098c9a1c65f8a9d",
+      "url": "https://blog.aiyly.com/media/baoshi-shan-20261122-v1/fruit-tree.jpg"
+    },
+    {
+      "name": "baochu-pagoda.jpg",
+      "key": "blog-media/baoshi-shan-20261122-v1/baochu-pagoda.jpg",
+      "bytes": 250998,
+      "sha256": "79cfcee351670692df40105d29dd95de26956a8c9faca8d55d3468bcb4fefead",
+      "url": "https://blog.aiyly.com/media/baoshi-shan-20261122-v1/baochu-pagoda.jpg"
+    },
+    {
+      "name": "stone-gateway.jpg",
+      "key": "blog-media/baoshi-shan-20261122-v1/stone-gateway.jpg",
+      "bytes": 469080,
+      "sha256": "4a420e3b7bf22fee92121ad21ced11987deb447ffee8ce359d85dc8c391124ea",
+      "url": "https://blog.aiyly.com/media/baoshi-shan-20261122-v1/stone-gateway.jpg"
+    },
+    {
+      "name": "daytime-moon.jpg",
+      "key": "blog-media/baoshi-shan-20261122-v1/daytime-moon.jpg",
+      "bytes": 77912,
+      "sha256": "c2f20e8063b3294dfb772ce9bf98a96d9d7bfd0eff510bf1ef857f45c4f4ddda",
+      "url": "https://blog.aiyly.com/media/baoshi-shan-20261122-v1/daytime-moon.jpg"
+    }
+  ]
+}
