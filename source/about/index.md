@@ -60,7 +60,7 @@ title: 个人简历
   <button class="print-btn no-print" type="button" onclick="window.print()">打印 / 保存 PDF</button>
 </div>
 
-<p>独立开发 Pacdora PackifyDesign 后端模块，并开发 AI 设计工作台前端。完成多模态 Agent 从 LangGraph 到自研 ReAct 的迁移，开发 Stripe 订阅与 AI 积分账本，将海外站发布拆为独立服务。支持生成任务恢复、设计稿编辑和账单核对。</p>
+<p>5 年多开发经验，覆盖 AI 应用、前端交互与交易系统。独立开发 Pacdora AI Design 后端并实现工作台前端，完成 LangGraph 到自研 ReAct 的迁移、Stripe 订阅与积分账本。独立开发并部署 Aiyly Studio，打通对话设计、异步生成、3D 编辑和付费交付。</p>
 
 <section aria-labelledby="experience">
   <h2 id="experience">工作经历</h2>
@@ -121,9 +121,20 @@ title: 个人简历
   </ul>
 </section>
 
+<section aria-labelledby="projects">
+  <h2 id="projects">个人项目</h2>
+  <h3><a href="https://www.aiyly.com/" target="_blank" rel="noopener noreferrer">Aiyly Studio</a> · AI 视觉设计与 3D 工作台｜独立开发</h3>
+  <ul>
+    <li><strong>全栈架构与 Agent 编排</strong> · 使用 React / Next.js、FastAPI 和 LangGraph 构建对话工作台，分离 AI 任务与 Node.js 账户计费服务。通过结构化输出校验和条件路由组织需求澄清、设计规划、生图与改图，跨轮保留品牌、参考图和编辑目标。</li>
+    <li><strong>持久任务与恢复</strong> · 使用 PostgreSQL 保存检查点、供应商任务 ID 和进度事件，通过 WebSocket 与事件游标补齐断线进度。以稳定请求 ID 和数据库条件更新控制重复提交；恢复时查询原任务，对提交结果未知的请求保留核查状态。</li>
+    <li><strong>AI 与 3D 交付</strong> · 将生成稿接入真实刀模与 Three.js 预览，依据模板版本、UV 和可印面完成贴图，支持 2D 转 3D、会话改稿、项目保存及 PNG / GLB 等格式导出。</li>
+    <li><strong>商业化与资产隔离</strong> · 接入 Waffo 支付、订阅和积分账本，处理回调验签、重复事件去重、积分预留与按交付结算。图片存入私有 R2，数据库保存对象引用，读取时校验账号归属；使用 Docker 部署独立服务。</li>
+  </ul>
+</section>
+
 <section aria-labelledby="skills">
   <h2 id="skills">技术栈</h2>
-  <p>TypeScript、Node.js、Midway.js、Vue 3、React、Next.js、Python、FastAPI、MySQL、PostgreSQL、Redis、RabbitMQ、Docker、GitLab CI/CD、AWS、阿里云</p>
+  <p>TypeScript、Node.js、Midway.js、React / Next.js、Vue 3、Python / FastAPI、LangGraph、ReAct、Three.js、MySQL、PostgreSQL、Redis、RabbitMQ、Docker、GitLab CI/CD、Cloudflare R2、AWS、阿里云</p>
 </section>
 
 <section aria-labelledby="education">

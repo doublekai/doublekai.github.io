@@ -23,7 +23,7 @@ const Hexo = require('hexo');
     let html = template.slice(0, begin + start.length) + rendered + template.slice(finish);
     html = html.replace(/www\.doublekai\.com/g, 'www.aiyly.com');
     html = html.replace(/<div class="post-info">[^<]*<\/div>/, '');
-    html = html.replace(/<meta name="description" content="[^"]*">/, '<meta name="description" content="王凯的个人简历：求职方向为 AI 应用架构师 / 软件架构师，项目经历涵盖多模态 Agent、支付订阅、静态发布和异步渲染。">');
+    html = html.replace(/<meta name="description" content="[^"]*">/, '<meta name="description" content="王凯的个人简历：AI 应用与软件架构方向，独立开发 Aiyly Studio，具备 Agent 编排、全栈开发、任务恢复、3D 编辑及支付订阅经验。">');
     fs.writeFileSync(target, html.replace(/\r\n/g, '\n'));
     console.log('Resume rendered:', target);
   } finally { await hexo.exit(); }
